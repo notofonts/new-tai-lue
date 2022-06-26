@@ -1,4 +1,8 @@
+buildVariable: true
+familyName: Noto Sans New Tai Lue
 googleFonts: true
+includeSubsets:
+- from: Noto Sans
+  name: GF_Latin_Core
 sources:
-- NotoSansTest.glyphs
-familyName: Noto Sans Test
+- NotoSansNewTaiLue.glyphs
