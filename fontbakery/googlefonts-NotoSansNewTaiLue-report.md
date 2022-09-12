@@ -9,28 +9,12 @@ Fontbakery version: 0.8.10
 </div></details><details><summary>🔥 <b>FAIL:</b> Each font in a family must have the same set of vertical metrics values. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/family/vertical_metrics">com.google.fonts/check/family/vertical_metrics</a>)</summary><div>
 
 
-* 🔥 **FAIL** sTypoAscender is not the same across the family:
-Noto Sans New Tai Lue Bold: 850
-Noto Sans New Tai Lue Medium: 1069
-Noto Sans New Tai Lue Regular: 1069 [code: sTypoAscender-mismatch]
-* 🔥 **FAIL** sTypoDescender is not the same across the family:
-Noto Sans New Tai Lue Bold: -278
-Noto Sans New Tai Lue Medium: -293
-Noto Sans New Tai Lue Regular: -293 [code: sTypoDescender-mismatch]
-* 🔥 **FAIL** sTypoLineGap is not the same across the family:
-Noto Sans New Tai Lue Bold: 72
-Noto Sans New Tai Lue Medium: 0
-Noto Sans New Tai Lue Regular: 0 [code: sTypoLineGap-mismatch]
 * 🔥 **FAIL** usWinAscent is not the same across the family:
-Noto Sans New Tai Lue Bold: 922
-Noto Sans New Tai Lue Medium: 1069
+Noto Sans New Tai Lue Bold: 1005
+Noto Sans New Tai Lue Medium: 1057
 Noto Sans New Tai Lue Regular: 1069 [code: usWinAscent-mismatch]
-* 🔥 **FAIL** usWinDescent is not the same across the family:
-Noto Sans New Tai Lue Bold: 278
-Noto Sans New Tai Lue Medium: 457
-Noto Sans New Tai Lue Regular: 457 [code: usWinDescent-mismatch]
 * 🔥 **FAIL** ascent is not the same across the family:
-Noto Sans New Tai Lue Bold: 922
+Noto Sans New Tai Lue Bold: 850
 Noto Sans New Tai Lue Medium: 1069
 Noto Sans New Tai Lue Regular: 1069 [code: ascent-mismatch]
 * 🔥 **FAIL** descent is not the same across the family:
@@ -45,15 +29,10 @@ Noto Sans New Tai Lue Regular: -293 [code: descent-mismatch]
 
 
 * 🔥 **FAIL** PANOSE family type is not the same across this family. In order to fix this, please make sure that the panose.bFamilyType value is the same in the OS/2 table of all of this family font files. [code: inconsistency]
-</div></details><br></div></details><details><summary><b>[14] NotoSansNewTaiLue-Bold.ttf</b></summary><div><details><summary>🔥 <b>FAIL:</b> Checking OS/2 usWinAscent & usWinDescent. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/family/win_ascent_and_descent">com.google.fonts/check/family/win_ascent_and_descent</a>)</summary><div>
+</div></details><br></div></details><details><summary><b>[12] NotoSansNewTaiLue-Bold.ttf</b></summary><div><details><summary>🔥 <b>FAIL:</b> Checking OS/2 Metrics match hhea Metrics. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/os2_metrics_match_hhea">com.google.fonts/check/os2_metrics_match_hhea</a>)</summary><div>
 
 
-* 🔥 **FAIL** OS/2.usWinAscent value should be equal or greater than 1005, but got 922 instead [code: ascent]
-* 🔥 **FAIL** OS/2.usWinDescent value should be equal or greater than 474, but got 278 instead. [code: descent]
-</div></details><details><summary>🔥 <b>FAIL:</b> Checking OS/2 Metrics match hhea Metrics. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/os2_metrics_match_hhea">com.google.fonts/check/os2_metrics_match_hhea</a>)</summary><div>
-
-
-* 🔥 **FAIL** OS/2 sTypoAscender (850) and hhea ascent (922) must be equal. [code: ascender]
+* 🔥 **FAIL** OS/2 sTypoAscender (1069) and hhea ascent (850) must be equal. [code: ascender]
 </div></details><details><summary>🔥 <b>FAIL:</b> Ensure dotted circle glyph is present and can attach marks. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/dotted_circle">com.google.fonts/check/dotted_circle</a>)</summary><div>
 
 
@@ -126,7 +105,7 @@ Use -F or --full-lists to disable shortening of long lists. [code: unattached-do
 <pre>Got     : .notdef=0+600</pre>
 
 
-Got: <svg class="shaping-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 2200" transform="matrix(1 0 0 -1 0 0)">
+Got: <svg class="shaping-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 2128" transform="matrix(1 0 0 -1 0 0)">
 <path d="M94.0,0.0L94.0,714.0L505.0,714.0L505.0,0.0L94.0,0.0ZM145.0,51.0L454.0,51.0L454.0,663.0L145.0,663.0L145.0,51.0Z"  transform="translate(0, 778)"/>
 </svg>
 
@@ -166,10 +145,6 @@ The following glyphs do not have the recommended number of contours:
 
 	- And Glyph name: uogonek	Contours detected: 2	Expected: 1
  [code: contour-count]
-</div></details><details><summary>⚠ <b>WARN:</b> Checking Vertical Metric Linegaps. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/hhea.html#com.google.fonts/check/linegaps">com.google.fonts/check/linegaps</a>)</summary><div>
-
-
-* ⚠ **WARN** OS/2 sTypoLineGap is not equal to 0. [code: OS/2]
 </div></details><details><summary>⚠ <b>WARN:</b> Are there any misaligned on-curve points? (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/<Section: Outline Correctness Checks>.html#com.google.fonts/check/outline_alignment_miss">com.google.fonts/check/outline_alignment_miss</a>)</summary><div>
 
 
@@ -183,6 +158,8 @@ The following glyphs do not have the recommended number of contours:
 
 	* numbersign (U+0023): X=545.0,Y=713.0 (should be at cap-height 714?)
 
+	* twolue (U+0032): X=85.5,Y=-291.5 (should be at descender -293?)
+
 	* six (U+0036): X=489.0,Y=715.0 (should be at cap-height 714?)
 
 	* C (U+0043): X=482.0,Y=-1.0 (should be at baseline 0?)
@@ -191,11 +168,9 @@ The following glyphs do not have the recommended number of contours:
 
 	* G (U+0047): X=543.0,Y=712.0 (should be at cap-height 714?)
 
-	* c (U+0063): X=173.5,Y=526.0 (should be at x-height 525?)
+	* c (U+0063): X=173.5,Y=526.0 (should be at x-height 525?) 
 
-	* c (U+0063): X=394.5,Y=-0.5 (should be at baseline 0?) 
-
-	* And 90 more.
+	* And 49 more.
 
 Use -F or --full-lists to disable shortening of long lists. [code: found-misalignments]
 </div></details><details><summary>⚠ <b>WARN:</b> Are any segments inordinately short? (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/<Section: Outline Correctness Checks>.html#com.google.fonts/check/outline_short_segments">com.google.fonts/check/outline_short_segments</a>)</summary><div>
@@ -286,11 +261,7 @@ Use -F or --full-lists to disable shortening of long lists. [code: found-jaggy-s
 	* twolue (U+0032): L<<123.0,-165.0>--<124.0,356.0>> 
 
 	* And twolue (U+0032): L<<269.0,368.0>--<268.0,-173.0>> [code: found-semi-vertical]
-</div></details><br></div></details><details><summary><b>[11] NotoSansNewTaiLue-Medium.ttf</b></summary><div><details><summary>🔥 <b>FAIL:</b> Checking OS/2 usWinAscent & usWinDescent. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/family/win_ascent_and_descent">com.google.fonts/check/family/win_ascent_and_descent</a>)</summary><div>
-
-
-* 🔥 **FAIL** OS/2.usWinDescent value should be equal or greater than 474, but got 457 instead. [code: descent]
-</div></details><details><summary>🔥 <b>FAIL:</b> Ensure dotted circle glyph is present and can attach marks. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/dotted_circle">com.google.fonts/check/dotted_circle</a>)</summary><div>
+</div></details><br></div></details><details><summary><b>[10] NotoSansNewTaiLue-Medium.ttf</b></summary><div><details><summary>🔥 <b>FAIL:</b> Ensure dotted circle glyph is present and can attach marks. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/dotted_circle">com.google.fonts/check/dotted_circle</a>)</summary><div>
 
 
 * 🔥 **FAIL** The following glyphs could not be attached to the dotted circle glyph:
@@ -467,11 +438,7 @@ Use -F or --full-lists to disable shortening of long lists. [code: found-short-s
 	* twolue (U+0032): L<<146.0,-180.0>--<147.0,351.0>> 
 
 	* And twolue (U+0032): L<<242.0,373.0>--<241.0,-186.0>> [code: found-semi-vertical]
-</div></details><br></div></details><details><summary><b>[11] NotoSansNewTaiLue-Regular.ttf</b></summary><div><details><summary>🔥 <b>FAIL:</b> Checking OS/2 usWinAscent & usWinDescent. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/family/win_ascent_and_descent">com.google.fonts/check/family/win_ascent_and_descent</a>)</summary><div>
-
-
-* 🔥 **FAIL** OS/2.usWinDescent value should be equal or greater than 474, but got 457 instead. [code: descent]
-</div></details><details><summary>🔥 <b>FAIL:</b> Ensure dotted circle glyph is present and can attach marks. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/dotted_circle">com.google.fonts/check/dotted_circle</a>)</summary><div>
+</div></details><br></div></details><details><summary><b>[10] NotoSansNewTaiLue-Regular.ttf</b></summary><div><details><summary>🔥 <b>FAIL:</b> Ensure dotted circle glyph is present and can attach marks. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/dotted_circle">com.google.fonts/check/dotted_circle</a>)</summary><div>
 
 
 * 🔥 **FAIL** The following glyphs could not be attached to the dotted circle glyph:
@@ -648,7 +615,7 @@ Use -F or --full-lists to disable shortening of long lists. [code: found-short-s
 	* twolue (U+0032): L<<152.0,-183.0>--<153.0,350.0>> 
 
 	* And twolue (U+0032): L<<235.0,374.0>--<234.0,-189.0>> [code: found-semi-vertical]
-</div></details><br></div></details><details><summary><b>[9] NotoSansNewTaiLue[wght].ttf</b></summary><div><details><summary>💔 <b>ERROR:</b> Check font names are correct (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/font_names">com.google.fonts/check/font_names</a>)</summary><div>
+</div></details><br></div></details><details><summary><b>[8] NotoSansNewTaiLue[wght].ttf</b></summary><div><details><summary>💔 <b>ERROR:</b> Check font names are correct (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/font_names">com.google.fonts/check/font_names</a>)</summary><div>
 
 
 * 💔 **ERROR** The condition <FontBakeryCondition:expected_font_names> had an error: KeyError: 'fvar'
@@ -660,10 +627,6 @@ Use -F or --full-lists to disable shortening of long lists. [code: found-short-s
 
 
 * 💔 **ERROR** The condition <FontBakeryCondition:expected_font_names> had an error: KeyError: 'fvar'
-</div></details><details><summary>🔥 <b>FAIL:</b> Checking OS/2 usWinAscent & usWinDescent. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/family/win_ascent_and_descent">com.google.fonts/check/family/win_ascent_and_descent</a>)</summary><div>
-
-
-* 🔥 **FAIL** OS/2.usWinDescent value should be equal or greater than 474, but got 457 instead. [code: descent]
 </div></details><details><summary>🔥 <b>FAIL:</b> Ensure dotted circle glyph is present and can attach marks. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/dotted_circle">com.google.fonts/check/dotted_circle</a>)</summary><div>
 
 
@@ -769,7 +732,7 @@ Please take a look at the conversation at https://github.com/googlefonts/fontbak
 
 | 💔 ERROR | 🔥 FAIL | ⚠ WARN | 💤 SKIP | ℹ INFO | 🍞 PASS | 🔎 DEBUG |
 |:-----:|:----:|:----:|:----:|:----:|:----:|:----:|
-| 3 | 19 | 27 | 427 | 26 | 361 | 0 |
+| 3 | 15 | 26 | 427 | 26 | 366 | 0 |
 | 0% | 2% | 3% | 49% | 3% | 42% | 0% |
 
 **Note:** The following loglevels were omitted in this report:
