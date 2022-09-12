@@ -27,8 +27,8 @@ Noto Sans New Tai Lue Medium: 1069
 Noto Sans New Tai Lue Regular: 1069 [code: usWinAscent-mismatch]
 * 🔥 **FAIL** usWinDescent is not the same across the family:
 Noto Sans New Tai Lue Bold: 278
-Noto Sans New Tai Lue Medium: 293
-Noto Sans New Tai Lue Regular: 293 [code: usWinDescent-mismatch]
+Noto Sans New Tai Lue Medium: 457
+Noto Sans New Tai Lue Regular: 457 [code: usWinDescent-mismatch]
 * 🔥 **FAIL** ascent is not the same across the family:
 Noto Sans New Tai Lue Bold: 922
 Noto Sans New Tai Lue Medium: 1069
@@ -289,7 +289,7 @@ Use -F or --full-lists to disable shortening of long lists. [code: found-jaggy-s
 </div></details><br></div></details><details><summary><b>[11] NotoSansNewTaiLue-Medium.ttf</b></summary><div><details><summary>🔥 <b>FAIL:</b> Checking OS/2 usWinAscent & usWinDescent. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/family/win_ascent_and_descent">com.google.fonts/check/family/win_ascent_and_descent</a>)</summary><div>
 
 
-* 🔥 **FAIL** OS/2.usWinDescent value should be equal or greater than 474, but got 293 instead. [code: descent]
+* 🔥 **FAIL** OS/2.usWinDescent value should be equal or greater than 474, but got 457 instead. [code: descent]
 </div></details><details><summary>🔥 <b>FAIL:</b> Ensure dotted circle glyph is present and can attach marks. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/dotted_circle">com.google.fonts/check/dotted_circle</a>)</summary><div>
 
 
@@ -467,10 +467,10 @@ Use -F or --full-lists to disable shortening of long lists. [code: found-short-s
 	* twolue (U+0032): L<<146.0,-180.0>--<147.0,351.0>> 
 
 	* And twolue (U+0032): L<<242.0,373.0>--<241.0,-186.0>> [code: found-semi-vertical]
-</div></details><br></div></details><details><summary><b>[10] NotoSansNewTaiLue-Regular.ttf</b></summary><div><details><summary>🔥 <b>FAIL:</b> Checking OS/2 usWinAscent & usWinDescent. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/family/win_ascent_and_descent">com.google.fonts/check/family/win_ascent_and_descent</a>)</summary><div>
+</div></details><br></div></details><details><summary><b>[11] NotoSansNewTaiLue-Regular.ttf</b></summary><div><details><summary>🔥 <b>FAIL:</b> Checking OS/2 usWinAscent & usWinDescent. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/family/win_ascent_and_descent">com.google.fonts/check/family/win_ascent_and_descent</a>)</summary><div>
 
 
-* 🔥 **FAIL** OS/2.usWinDescent value should be equal or greater than 474, but got 293 instead. [code: descent]
+* 🔥 **FAIL** OS/2.usWinDescent value should be equal or greater than 474, but got 457 instead. [code: descent]
 </div></details><details><summary>🔥 <b>FAIL:</b> Ensure dotted circle glyph is present and can attach marks. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/dotted_circle">com.google.fonts/check/dotted_circle</a>)</summary><div>
 
 
@@ -545,6 +545,12 @@ Got: <svg class="shaping-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60
 
 
 </div> [code: shaping-regression]
+</div></details><details><summary>⚠ <b>WARN:</b> Glyphs are similiar to Google Fonts version? (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/production_glyphs_similarity">com.google.fonts/check/production_glyphs_similarity</a>)</summary><div>
+
+
+* ⚠ **WARN** Following glyphs differ greatly from Google Fonts version:
+	* abovemk1
+	* belowmk1 and belowmk2
 </div></details><details><summary>⚠ <b>WARN:</b> Combined length of family and style must not exceed 27 characters. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/name/family_and_style_max_length">com.google.fonts/check/name/family_and_style_max_length</a>)</summary><div>
 
 
@@ -657,7 +663,7 @@ Use -F or --full-lists to disable shortening of long lists. [code: found-short-s
 </div></details><details><summary>🔥 <b>FAIL:</b> Checking OS/2 usWinAscent & usWinDescent. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/family/win_ascent_and_descent">com.google.fonts/check/family/win_ascent_and_descent</a>)</summary><div>
 
 
-* 🔥 **FAIL** OS/2.usWinDescent value should be equal or greater than 474, but got 293 instead. [code: descent]
+* 🔥 **FAIL** OS/2.usWinDescent value should be equal or greater than 474, but got 457 instead. [code: descent]
 </div></details><details><summary>🔥 <b>FAIL:</b> Ensure dotted circle glyph is present and can attach marks. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/dotted_circle">com.google.fonts/check/dotted_circle</a>)</summary><div>
 
 
@@ -763,7 +769,7 @@ Please take a look at the conversation at https://github.com/googlefonts/fontbak
 
 | 💔 ERROR | 🔥 FAIL | ⚠ WARN | 💤 SKIP | ℹ INFO | 🍞 PASS | 🔎 DEBUG |
 |:-----:|:----:|:----:|:----:|:----:|:----:|:----:|
-| 3 | 19 | 26 | 427 | 26 | 362 | 0 |
+| 3 | 19 | 27 | 427 | 26 | 361 | 0 |
 | 0% | 2% | 3% | 49% | 3% | 42% | 0% |
 
 **Note:** The following loglevels were omitted in this report:
