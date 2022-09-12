@@ -1,7 +1,7 @@
 {
 .appVersion = "3109";
 DisplayStrings = (
-"/uni00A0"
+"/space"
 );
 copyright = "Copyright 2022 The Noto Project Authors (https://github.com/notofonts/new-tai-lue)";
 customParameters = (
@@ -31950,7 +31950,7 @@ width = 600;
 {
 color = 10;
 glyphname = space;
-lastChange = "2022-04-04 15:48:37 +0000";
+lastChange = "2022-09-12 09:37:33 +0000";
 layers = (
 {
 layerId = UUID0;
@@ -31961,7 +31961,7 @@ width = 260;
 },
 {
 layerId = "1FCF787B-CF33-4B83-BE16-73AC6600FEB7";
-width = 240;
+width = 260;
 }
 );
 unicode = 0020;
