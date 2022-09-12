@@ -140,6 +140,10 @@ value = (
 );
 },
 {
+name = "Use Typo Metrics";
+value = 1;
+},
+{
 name = description;
 value = "Designed by Monotype design team.";
 },
@@ -162,10 +166,6 @@ value = GOOG;
 {
 name = trademark;
 value = "Noto is a trademark of Google LLC.";
-},
-{
-name = "Use Typo Metrics";
-value = 1;
 },
 {
 name = Axes;
@@ -230,7 +230,7 @@ value = 1069;
 },
 {
 name = winDescent;
-value = 457;
+value = 474;
 },
 {
 name = underlineThickness;
@@ -278,6 +278,28 @@ alignmentZones = (
 );
 ascender = 850;
 capHeight = 714;
+customParameters = (
+{
+name = winDescent;
+value = 474;
+},
+{
+name = winAscent;
+value = 1005;
+},
+{
+name = typoAscender;
+value = 1069;
+},
+{
+name = typoDescender;
+value = -293;
+},
+{
+name = typoLineGap;
+value = 0;
+}
+);
 descender = -278;
 guideLines = (
 {
