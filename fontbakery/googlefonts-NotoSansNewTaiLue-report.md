@@ -73,9 +73,7 @@ Got: <svg class="shaping-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60
 
 	- tvaHighlue
 
-	- tvaLowlue
-
-	- two 
+	- tvaLowlue 
 
 	- And uni00A0.1
  [code: unreachable-glyphs]
@@ -107,8 +105,6 @@ The following glyphs do not have the recommended number of contours:
 
 	* numbersign (U+0023): X=545.0,Y=713.0 (should be at cap-height 714?)
 
-	* twolue (U+0032): X=85.5,Y=-291.5 (should be at descender -293?)
-
 	* six (U+0036): X=489.0,Y=715.0 (should be at cap-height 714?)
 
 	* C (U+0043): X=482.0,Y=-1.0 (should be at baseline 0?)
@@ -117,7 +113,9 @@ The following glyphs do not have the recommended number of contours:
 
 	* G (U+0047): X=543.0,Y=712.0 (should be at cap-height 714?)
 
-	* c (U+0063): X=173.5,Y=526.0 (should be at x-height 525?) 
+	* c (U+0063): X=173.5,Y=526.0 (should be at x-height 525?)
+
+	* c (U+0063): X=394.5,Y=-0.5 (should be at baseline 0?) 
 
 	* And 49 more.
 
@@ -126,6 +124,8 @@ Use -F or --full-lists to disable shortening of long lists. [code: found-misalig
 
 
 * ⚠ **WARN** The following glyphs have segments which seem very short:
+
+	* two (U+0032) contains a short segment L<<228.0,134.0>--<228.0,127.0>>
 
 	* at (U+0040) contains a short segment B<<636.0,296.0>-<635.0,286.0>-<635.0,275.5>>
 
@@ -143,11 +143,9 @@ Use -F or --full-lists to disable shortening of long lists. [code: found-misalig
 
 	* Q (U+0051) contains a short segment L<<409.0,-10.0>--<398.0,-10.0>>
 
-	* W (U+0057) contains a short segment B<<516.0,375.0>-<513.0,386.0>-<508.5,408.0>>
+	* W (U+0057) contains a short segment B<<516.0,375.0>-<513.0,386.0>-<508.5,408.0>> 
 
-	* a (U+0061) contains a short segment L<<396.0,74.0>--<392.0,74.0>> 
-
-	* And 77 more.
+	* And 78 more.
 
 Use -F or --full-lists to disable shortening of long lists. [code: found-short-segments]
 </div></details><details><summary>⚠ <b>WARN:</b> Do any segments have colinear vectors? (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/<Section: Outline Correctness Checks>.html#com.google.fonts/check/outline_colinear_vectors">com.google.fonts/check/outline_colinear_vectors</a>)</summary><div>
@@ -207,9 +205,9 @@ Use -F or --full-lists to disable shortening of long lists. [code: found-jaggy-s
 
 	* thaHighlue (U+198F): L<<610.0,265.0>--<609.0,-186.0>>
 
-	* twolue (U+0032): L<<123.0,-165.0>--<124.0,356.0>> 
+	* twolue (U+19D2): L<<123.0,-165.0>--<124.0,356.0>> 
 
-	* And twolue (U+0032): L<<269.0,368.0>--<268.0,-173.0>> [code: found-semi-vertical]
+	* And twolue (U+19D2): L<<269.0,368.0>--<268.0,-173.0>> [code: found-semi-vertical]
 </div></details><br></div></details><details><summary><b>[8] NotoSansNewTaiLue-Medium.ttf</b></summary><div><details><summary>🔥 <b>FAIL:</b> Check that texts shape as per expectation (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/<Section: Shaping Checks>.html#com.google.fonts/check/shaping/regression">com.google.fonts/check/shaping/regression</a>)</summary><div>
 
 
@@ -276,9 +274,7 @@ Please take a look at the conversation at https://github.com/googlefonts/fontbak
 
 	- tvaHighlue
 
-	- tvaLowlue
-
-	- two 
+	- tvaLowlue 
 
 	- And uni00A0.1
  [code: unreachable-glyphs]
@@ -302,6 +298,8 @@ The following glyphs do not have the recommended number of contours:
 
 * ⚠ **WARN** The following glyphs have segments which seem very short:
 
+	* two (U+0032) contains a short segment L<<172.0,94.0>--<172.0,89.0>>
+
 	* at (U+0040) contains a short segment B<<617.0,294.0>-<617.0,277.0>-<616.5,269.0>>
 
 	* at (U+0040) contains a short segment B<<616.5,269.0>-<616.0,261.0>-<616.0,258.0>>
@@ -318,11 +316,9 @@ The following glyphs do not have the recommended number of contours:
 
 	* Q (U+0051) contains a short segment B<<403.5,-9.5>-<398.0,-10.0>-<392.0,-10.0>>
 
-	* a (U+0061) contains a short segment L<<398.0,76.0>--<394.0,76.0>>
+	* a (U+0061) contains a short segment L<<398.0,76.0>--<394.0,76.0>> 
 
-	* d (U+0064) contains a short segment L<<439.0,72.0>--<435.0,72.0>> 
-
-	* And 74 more.
+	* And 75 more.
 
 Use -F or --full-lists to disable shortening of long lists. [code: found-short-segments]
 </div></details><details><summary>⚠ <b>WARN:</b> Do any segments have colinear vectors? (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/<Section: Outline Correctness Checks>.html#com.google.fonts/check/outline_colinear_vectors">com.google.fonts/check/outline_colinear_vectors</a>)</summary><div>
@@ -352,10 +348,10 @@ Use -F or --full-lists to disable shortening of long lists. [code: found-short-s
 
 	* thaHighlue (U+198F): L<<582.0,265.0>--<581.0,-188.0>>
 
-	* twolue (U+0032): L<<146.0,-180.0>--<147.0,351.0>> 
+	* twolue (U+19D2): L<<146.0,-180.0>--<147.0,351.0>> 
 
-	* And twolue (U+0032): L<<242.0,373.0>--<241.0,-186.0>> [code: found-semi-vertical]
-</div></details><br></div></details><details><summary><b>[9] NotoSansNewTaiLue-Regular.ttf</b></summary><div><details><summary>🔥 <b>FAIL:</b> Check that texts shape as per expectation (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/<Section: Shaping Checks>.html#com.google.fonts/check/shaping/regression">com.google.fonts/check/shaping/regression</a>)</summary><div>
+	* And twolue (U+19D2): L<<242.0,373.0>--<241.0,-186.0>> [code: found-semi-vertical]
+</div></details><br></div></details><details><summary><b>[8] NotoSansNewTaiLue-Regular.ttf</b></summary><div><details><summary>🔥 <b>FAIL:</b> Check that texts shape as per expectation (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/<Section: Shaping Checks>.html#com.google.fonts/check/shaping/regression">com.google.fonts/check/shaping/regression</a>)</summary><div>
 
 
 * 🔥 **FAIL** qa/shaping_tests/example.json: Expected and actual shaping not matching
@@ -401,12 +397,6 @@ Got: <svg class="shaping-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60
 
 
 </div> [code: shaping-regression]
-</div></details><details><summary>⚠ <b>WARN:</b> Glyphs are similiar to Google Fonts version? (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/production_glyphs_similarity">com.google.fonts/check/production_glyphs_similarity</a>)</summary><div>
-
-
-* ⚠ **WARN** Following glyphs differ greatly from Google Fonts version:
-	* abovemk1
-	* belowmk1 and belowmk2
 </div></details><details><summary>⚠ <b>WARN:</b> Combined length of family and style must not exceed 27 characters. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/name/family_and_style_max_length">com.google.fonts/check/name/family_and_style_max_length</a>)</summary><div>
 
 
@@ -427,9 +417,7 @@ Please take a look at the conversation at https://github.com/googlefonts/fontbak
 
 	- tvaHighlue
 
-	- tvaLowlue
-
-	- two 
+	- tvaLowlue 
 
 	- And uni00A0.1
  [code: unreachable-glyphs]
@@ -453,6 +441,8 @@ The following glyphs do not have the recommended number of contours:
 
 * ⚠ **WARN** The following glyphs have segments which seem very short:
 
+	* two (U+0032) contains a short segment L<<159.0,84.0>--<159.0,80.0>>
+
 	* at (U+0040) contains a short segment B<<613.0,293.0>-<612.0,275.0>-<612.0,267.5>>
 
 	* at (U+0040) contains a short segment B<<612.0,267.5>-<612.0,260.0>-<612.0,257.0>>
@@ -469,11 +459,9 @@ The following glyphs do not have the recommended number of contours:
 
 	* Q (U+0051) contains a short segment B<<403.5,-9.5>-<397.0,-10.0>-<391.0,-10.0>>
 
-	* W (U+0057) contains a short segment B<<468.0,577.5>-<463.0,600.0>-<461.0,609.0>>
+	* W (U+0057) contains a short segment B<<468.0,577.5>-<463.0,600.0>-<461.0,609.0>> 
 
-	* a (U+0061) contains a short segment L<<399.0,76.0>--<395.0,76.0>> 
-
-	* And 84 more.
+	* And 85 more.
 
 Use -F or --full-lists to disable shortening of long lists. [code: found-short-segments]
 </div></details><details><summary>⚠ <b>WARN:</b> Do any segments have colinear vectors? (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/<Section: Outline Correctness Checks>.html#com.google.fonts/check/outline_colinear_vectors">com.google.fonts/check/outline_colinear_vectors</a>)</summary><div>
@@ -501,9 +489,9 @@ Use -F or --full-lists to disable shortening of long lists. [code: found-short-s
 
 	* thaHighlue (U+198F): L<<575.0,265.0>--<574.0,-189.0>>
 
-	* twolue (U+0032): L<<152.0,-183.0>--<153.0,350.0>> 
+	* twolue (U+19D2): L<<152.0,-183.0>--<153.0,350.0>> 
 
-	* And twolue (U+0032): L<<235.0,374.0>--<234.0,-189.0>> [code: found-semi-vertical]
+	* And twolue (U+19D2): L<<235.0,374.0>--<234.0,-189.0>> [code: found-semi-vertical]
 </div></details><br></div></details><details><summary><b>[7] NotoSansNewTaiLue[wght].ttf</b></summary><div><details><summary>💔 <b>ERROR:</b> Check font names are correct (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/font_names">com.google.fonts/check/font_names</a>)</summary><div>
 
 
@@ -582,9 +570,7 @@ Please take a look at the conversation at https://github.com/googlefonts/fontbak
 
 	- tvaHighlue
 
-	- tvaLowlue
-
-	- two 
+	- tvaLowlue 
 
 	- And uni00A0.1
  [code: unreachable-glyphs]
@@ -593,7 +579,7 @@ Please take a look at the conversation at https://github.com/googlefonts/fontbak
 
 | 💔 ERROR | 🔥 FAIL | ⚠ WARN | 💤 SKIP | ℹ INFO | 🍞 PASS | 🔎 DEBUG |
 |:-----:|:----:|:----:|:----:|:----:|:----:|:----:|
-| 3 | 7 | 26 | 427 | 26 | 374 | 0 |
+| 3 | 7 | 25 | 427 | 26 | 375 | 0 |
 | 0% | 1% | 3% | 49% | 3% | 43% | 0% |
 
 **Note:** The following loglevels were omitted in this report:

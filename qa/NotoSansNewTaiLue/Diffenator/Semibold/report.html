@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>GFR - Glyphs</title>
+    
+    <style type="text/css">
+    
+
+        html{
+	  font-family: sans-serif;
+	}
+	.box-title{
+	  width: 100%;
+	  float: left;
+	  font-size: 8pt;
+	  font-weight: 700;
+	  border-top: 1px solid black;
+	  padding-top: 5px;
+	  margin-bottom: 10pt;
+	  display: block;
+	}
+	.box{
+	  margin-bottom: 20pt;
+	}
+	
+	#nav{
+	  position: fixed;
+	  right: 20px;
+	  z-index: 100;
+	}
+	#font-toggle{
+	  display: block;
+	  font-weight: 700;
+	  cursor: pointer;
+	  -webkit-user-select: none; /* Safari */        
+	  -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* IE10+/Edge */
+	  user-select: none; /* Standard */
+	  text-align: center;
+	  color: white;
+	  background-color: black;
+	  width: 50px;
+	  display: block;
+	  padding: 10px;
+	}
+	.tooltip {
+	z-index: 1;
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted black;
+	}
+
+	.tooltip .tooltiptext {
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	font-size: 10pt;
+	line-height: 13pt;
+
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1000;
+	}
+	.tooltip .tooltiptext {
+  width: 120px;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+	.tooltip:hover .tooltiptext {
+	visibility: visible;
+	}
+	           /* Stuff needed for the table differ */
+            body {
+                font-family: Helvetica;
+            }
+            .node {
+                font-family: courier;
+                cursor: pointer;
+                position: relative;
+                left: 30px;
+                padding: 5px;
+                display: block;
+                border: 1px dashed grey;
+            }
+            .header {
+            font-weight: bold;
+            }
+            .attrib-before{
+                color: red;
+                cursor: text;
+            }
+            .attrib-after{
+                color: green;
+                cursor: text;
+            }
+            .leaf {
+            font-weight: bold;
+            }
+            .before .cell .after {
+            	display:  none;
+            }
+            .after .cell .before {
+            	display:  none;
+            }
+            .both .cell .before {
+            	opacity: 0.75;
+            	color:  red;
+            }
+            .both .cell .after {
+            	opacity: 0.75;
+            	position: absolute;
+            	top: 0;
+            	color:  green;
+            }
+
+	  
+	    @font-face { font-family: before; src: url(before.ttf); }
+	  
+
+	  
+	    @font-face { font-family: after; src: url(after.ttf); }
+	  
+
+	  
+
+	  
+	    .before { font-family: before; }
+	  
+
+	  
+	    .after { font-family: after; }
+	  
+
+	  
+	
+.cell{
+  position: relative;
+  z-index: -100;
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 5pt;
+  margin: 5pt;
+  line-height: 48.0px;
+}
+.cat-strings .cell {
+  clear: both;
+  position: static;
+  float: none;
+  text-align: left;
+}
+.box-title {
+  clear: both;
+}
+
+    </style>
+</head>
+<body>
+    
+    <div id="nav">
+        <div id="font-toggle">Before</div>
+     </div>
+    
+    <div id="content">
+	<h2>
+<b>Diffenator</b>
+</h2>
+	
+  
+    <div class="box">
+    <div class="box-title">Tables</div>
+     
+<div class="node" >
+glyf
+  <div class="node" style="display:none">
+  glyphOrder
+    <div class="node" style="display:none">
+    [76]
+      <span class="attrib-before">belowmk1</span> <span class="attrib-after">zerolue</span>
+    </div>
+    <div class="node" style="display:none">
+    [77]
+      <span class="attrib-before">belowmk2</span> <span class="attrib-after">onelue</span>
+    </div>
+    <div class="node" style="display:none">
+    [78]
+      <span class="attrib-before">abovemk1</span> <span class="attrib-after">twolue</span>
+    </div>
+    <div class="node" style="display:none">
+    [79]
+      <span class="attrib-before">zerolue</span> <span class="attrib-after">threelue</span>
+    </div>
+    <div class="node" style="display:none">
+    [80]
+      <span class="attrib-before">onelue</span> <span class="attrib-after">fourlue</span>
+    </div>
+    <div class="node" style="display:none">
+    [81]
+      <span class="attrib-before">twolue</span> <span class="attrib-after">fivelue</span>
+    </div>
+    <div class="node" style="display:none">
+    [82]
+      <span class="attrib-before">threelue</span> <span class="attrib-after">sixlue</span>
+    </div>
+    <div class="node" style="display:none">
+    [83]
+      <span class="attrib-before">fourlue</span> <span class="attrib-after">sevenlue</span>
+    </div>
+    <div class="node" style="display:none">
+    [84]
+      <span class="attrib-before">fivelue</span> <span class="attrib-after">eightlue</span>
+    </div>
+    <div class="node" style="display:none">
+    [85]
+      <span class="attrib-before">sixlue</span> <span class="attrib-after">ninelue</span>
+    </div>
+    <div class="node" style="display:none">
+    [86]
+      <span class="attrib-before">sevenlue</span> <span class="attrib-after">oneDigitlue</span>
+    </div>
+    <div class="node" style="display:none">
+    [87]
+      <span class="attrib-before">eightlue</span> <span class="attrib-after">CR</span>
+    </div>
+    <div class="node" style="display:none">
+    [88]
+      <span class="attrib-before">ninelue</span> <span class="attrib-after">NULL</span>
+    </div>
+    <div class="node" style="display:none">
+    [89]
+      <span class="attrib-before">oneDigitlue</span> <span class="attrib-after">uni3008</span>
+    </div>
+    <div class="node" style="display:none">
+    [90]
+      <span class="attrib-before">CR</span> <span class="attrib-after">uni3009</span>
+    </div>
+    <div class="node" style="display:none">
+    [91]
+      <span class="attrib-before">NULL</span> <span class="attrib-after">uniFF1A</span>
+    </div>
+    <div class="node" style="display:none">
+    [92]
+      <span class="attrib-before">uni3008</span> <span class="attrib-after">uni3001</span>
+    </div>
+    <div class="node" style="display:none">
+    [93]
+      <span class="attrib-before">uni3009</span> <span class="attrib-after">uniFF64</span>
+    </div>
+    <div class="node" style="display:none">
+    [94]
+      <span class="attrib-before">uniFF1A</span> <span class="attrib-after">uniFF0C</span>
+    </div>
+    <div class="node" style="display:none">
+    [95]
+      <span class="attrib-before">uni3001</span> <span class="attrib-after">uni300A</span>
+    </div>
+    <div class="node" style="display:none">
+    [96]
+      <span class="attrib-before">uniFF64</span> <span class="attrib-after">uni300B</span>
+    </div>
+    <div class="node" style="display:none">
+    [97]
+      <span class="attrib-before">uniFF0C</span> <span class="attrib-after">uniFF01</span>
+    </div>
+    <div class="node" style="display:none">
+    [98]
+      <span class="attrib-before">uni300A</span> <span class="attrib-after">uniFF08</span>
+    </div>
+    <div class="node" style="display:none">
+    [99]
+      <span class="attrib-before">uni300B</span> <span class="attrib-after">uniFF09</span>
+    </div>
+    <div class="node" style="display:none">
+    [100]
+      <span class="attrib-before">uniFF01</span> <span class="attrib-after">uni3002</span>
+    </div>
+    <div class="node" style="display:none">
+    [101]
+      <span class="attrib-before">uniFF08</span> <span class="attrib-after">uniFF61</span>
+    </div>
+    <div class="node" style="display:none">
+    [102]
+      <span class="attrib-before">uniFF09</span> <span class="attrib-after">uniFF0E</span>
+    </div>
+    <div class="node" style="display:none">
+    [103]
+      <span class="attrib-before">uni3002</span> <span class="attrib-after">uniFF1F</span>
+    </div>
+    <div class="node" style="display:none">
+    [104]
+      <span class="attrib-before">uniFF61</span> <span class="attrib-after">uniFF1B</span>
+    </div>
+    <div class="node" style="display:none">
+    [105]
+      <span class="attrib-before">uniFF0E</span> <span class="attrib-after">space</span>
+    </div>
+    <div class="node" style="display:none">
+    [106]
+      <span class="attrib-before">uniFF1F</span> <span class="attrib-after">uni3000</span>
+    </div>
+    <div class="node" style="display:none">
+    [107]
+      <span class="attrib-before">uniFF1B</span> <span class="attrib-after">uni00A0</span>
+    </div>
+    <div class="node" style="display:none">
+    [108]
+      <span class="attrib-before">space</span> <span class="attrib-after">uni200C</span>
+    </div>
+    <div class="node" style="display:none">
+    [109]
+      <span class="attrib-before">uni3000</span> <span class="attrib-after">uni200D</span>
+    </div>
+    <div class="node" style="display:none">
+    [110]
+      <span class="attrib-before">uni00A0</span> <span class="attrib-after">None</span>
+    </div>
+    <div class="node" style="display:none">
+    [111]
+      <span class="attrib-before">uni200C</span> <span class="attrib-after">None</span>
+    </div>
+    <div class="node" style="display:none">
+    [112]
+      <span class="attrib-before">uni200D</span> <span class="attrib-after">None</span>
+    </div>
+  </div>
+</div>
+<div class="node" >
+post
+  <div class="node" style="display:none">
+  extraNames
+    <div class="node" style="display:none">
+    [75]
+      <span class="attrib-before">belowmk1</span> <span class="attrib-after">zerolue</span>
+    </div>
+    <div class="node" style="display:none">
+    [76]
+      <span class="attrib-before">belowmk2</span> <span class="attrib-after">onelue</span>
+    </div>
+    <div class="node" style="display:none">
+    [77]
+      <span class="attrib-before">abovemk1</span> <span class="attrib-after">twolue</span>
+    </div>
+    <div class="node" style="display:none">
+    [78]
+      <span class="attrib-before">zerolue</span> <span class="attrib-after">threelue</span>
+    </div>
+    <div class="node" style="display:none">
+    [79]
+      <span class="attrib-before">onelue</span> <span class="attrib-after">fourlue</span>
+    </div>
+    <div class="node" style="display:none">
+    [80]
+      <span class="attrib-before">twolue</span> <span class="attrib-after">fivelue</span>
+    </div>
+    <div class="node" style="display:none">
+    [81]
+      <span class="attrib-before">threelue</span> <span class="attrib-after">sixlue</span>
+    </div>
+    <div class="node" style="display:none">
+    [82]
+      <span class="attrib-before">fourlue</span> <span class="attrib-after">sevenlue</span>
+    </div>
+    <div class="node" style="display:none">
+    [83]
+      <span class="attrib-before">fivelue</span> <span class="attrib-after">eightlue</span>
+    </div>
+    <div class="node" style="display:none">
+    [84]
+      <span class="attrib-before">sixlue</span> <span class="attrib-after">ninelue</span>
+    </div>
+    <div class="node" style="display:none">
+    [85]
+      <span class="attrib-before">sevenlue</span> <span class="attrib-after">oneDigitlue</span>
+    </div>
+    <div class="node" style="display:none">
+    [86]
+      <span class="attrib-before">eightlue</span> <span class="attrib-after">CR</span>
+    </div>
+    <div class="node" style="display:none">
+    [87]
+      <span class="attrib-before">ninelue</span> <span class="attrib-after">NULL</span>
+    </div>
+    <div class="node" style="display:none">
+    [88]
+      <span class="attrib-before">oneDigitlue</span> <span class="attrib-after">uni3008</span>
+    </div>
+    <div class="node" style="display:none">
+    [89]
+      <span class="attrib-before">CR</span> <span class="attrib-after">uni3009</span>
+    </div>
+    <div class="node" style="display:none">
+    [90]
+      <span class="attrib-before">NULL</span> <span class="attrib-after">uniFF1A</span>
+    </div>
+    <div class="node" style="display:none">
+    [91]
+      <span class="attrib-before">uni3008</span> <span class="attrib-after">uni3001</span>
+    </div>
+    <div class="node" style="display:none">
+    [92]
+      <span class="attrib-before">uni3009</span> <span class="attrib-after">uniFF64</span>
+    </div>
+    <div class="node" style="display:none">
+    [93]
+      <span class="attrib-before">uniFF1A</span> <span class="attrib-after">uniFF0C</span>
+    </div>
+    <div class="node" style="display:none">
+    [94]
+      <span class="attrib-before">uni3001</span> <span class="attrib-after">uni300A</span>
+    </div>
+    <div class="node" style="display:none">
+    [95]
+      <span class="attrib-before">uniFF64</span> <span class="attrib-after">uni300B</span>
+    </div>
+    <div class="node" style="display:none">
+    [96]
+      <span class="attrib-before">uniFF0C</span> <span class="attrib-after">uniFF01</span>
+    </div>
+    <div class="node" style="display:none">
+    [97]
+      <span class="attrib-before">uni300A</span> <span class="attrib-after">uniFF08</span>
+    </div>
+    <div class="node" style="display:none">
+    [98]
+      <span class="attrib-before">uni300B</span> <span class="attrib-after">uniFF09</span>
+    </div>
+    <div class="node" style="display:none">
+    [99]
+      <span class="attrib-before">uniFF01</span> <span class="attrib-after">uni3002</span>
+    </div>
+    <div class="node" style="display:none">
+    [100]
+      <span class="attrib-before">uniFF08</span> <span class="attrib-after">uniFF61</span>
+    </div>
+    <div class="node" style="display:none">
+    [101]
+      <span class="attrib-before">uniFF09</span> <span class="attrib-after">uniFF0E</span>
+    </div>
+    <div class="node" style="display:none">
+    [102]
+      <span class="attrib-before">uni3002</span> <span class="attrib-after">uniFF1F</span>
+    </div>
+    <div class="node" style="display:none">
+    [103]
+      <span class="attrib-before">uniFF61</span> <span class="attrib-after">uniFF1B</span>
+    </div>
+    <div class="node" style="display:none">
+    [104]
+      <span class="attrib-before">uniFF0E</span> <span class="attrib-after">uni3000</span>
+    </div>
+    <div class="node" style="display:none">
+    [105]
+      <span class="attrib-before">uniFF1F</span> <span class="attrib-after">uni00A0</span>
+    </div>
+    <div class="node" style="display:none">
+    [106]
+      <span class="attrib-before">uniFF1B</span> <span class="attrib-after">uni200C</span>
+    </div>
+    <div class="node" style="display:none">
+    [107]
+      <span class="attrib-before">uni3000</span> <span class="attrib-after">uni200D</span>
+    </div>
+    <div class="node" style="display:none">
+    [108]
+      <span class="attrib-before">uni00A0</span> <span class="attrib-after">None</span>
+    </div>
+    <div class="node" style="display:none">
+    [109]
+      <span class="attrib-before">uni200C</span> <span class="attrib-after">None</span>
+    </div>
+    <div class="node" style="display:none">
+    [110]
+      <span class="attrib-before">uni200D</span> <span class="attrib-after">None</span>
+    </div>
+  </div>
+</div>
+<div class="node" >
+hhea
+  <div class="node" style="display:none">
+  numberOfHMetrics
+    <span class="attrib-before">112</span> <span class="attrib-after">109</span>
+  </div>
+</div>
+<div class="node" >
+maxp
+  <div class="node" style="display:none">
+  maxCompositePoints
+    <span class="attrib-before">93</span> <span class="attrib-after">28</span>
+  </div>
+  <div class="node" style="display:none">
+  numGlyphs
+    <span class="attrib-before">113</span> <span class="attrib-after">110</span>
+  </div>
+  <div class="node" style="display:none">
+  maxComponentElements
+    <span class="attrib-before">2</span> <span class="attrib-after">1</span>
+  </div>
+  <div class="node" style="display:none">
+  maxCompositeContours
+    <span class="attrib-before">4</span> <span class="attrib-after">2</span>
+  </div>
+</div>
+<div class="node" >
+head
+  <div class="node" style="display:none">
+  modified
+    <span class="attrib-before">3745822743</span> <span class="attrib-after">3745912335</span>
+  </div>
+  <div class="node" style="display:none">
+  checkSumAdjustment
+    <span class="attrib-before">3039343854</span> <span class="attrib-after">1502945687</span>
+  </div>
+</div>
+<div class="node" >
+OS/2
+  <div class="node" style="display:none">
+  ulUnicodeRange2
+    <span class="attrib-before">0</span> <span class="attrib-after">8192</span>
+  </div>
+  <div class="node" style="display:none">
+  xAvgCharWidth
+    <span class="attrib-before">767</span> <span class="attrib-after">772</span>
+  </div>
+</div>
+<div class="node" >
+cmap
+  <div class="node" style="display:none">
+  0x19D2
+    <span class="attrib-before">None</span> <span class="attrib-after">twolue</span>
+  </div>
+  <div class="node" style="display:none">
+  0x0032
+    <span class="attrib-before">twolue</span> <span class="attrib-after">None</span>
+  </div>
+</div>
+<div class="node" >
+hmtx
+  <div class="node" style="display:none">
+  metrics
+    <div class="node" style="display:none">
+    belowmk1
+      <div class="node" style="display:none">
+      [0]
+        <span class="attrib-before">703</span> <span class="attrib-after">None</span>
+      </div>
+      <div class="node" style="display:none">
+      [1]
+        <span class="attrib-before">0</span> <span class="attrib-after">None</span>
+      </div>
+    </div>
+    <div class="node" style="display:none">
+    abovemk1
+      <div class="node" style="display:none">
+      [0]
+        <span class="attrib-before">507</span> <span class="attrib-after">None</span>
+      </div>
+      <div class="node" style="display:none">
+      [1]
+        <span class="attrib-before">0</span> <span class="attrib-after">None</span>
+      </div>
+    </div>
+    <div class="node" style="display:none">
+    belowmk2
+      <div class="node" style="display:none">
+      [0]
+        <span class="attrib-before">492</span> <span class="attrib-after">None</span>
+      </div>
+      <div class="node" style="display:none">
+      [1]
+        <span class="attrib-before">4</span> <span class="attrib-after">None</span>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+	    
+        
+      <div class="box">
+      <div class="box-title">glyphs: modified</div>
+      <span class="before" style="font-size: 32pt">
+            
+              <div class="cat-glyphs subcat-modified">
+                <div class="cell">
+    <div class="tooltip">
+        <span class="after">ᦩ</span>
+        <span class="before">ᦩ</span>
+        <span class="tooltiptext">
+            glyph: xvaLowlue<br>
+            gids: [42]<br>
+            diff: 1.441520470459914
+        </span>
+    </div>
+</div>
+              </div>
+            
+        
+      <div class="box">
+      <div class="box-title">glyphs: missing</div>
+      <span class="before" style="font-size: 32pt">
+            
+              <div class="cat-glyphs subcat-missing">
+                <div class="cell">
+    <div class="tooltip">
+        2
+        <span class="tooltiptext">
+            glyph: twolue<br>
+            gids: [81]<br>
+        </span>
+    </div>
+</div>
+              </div>
+            
+        
+      <div class="box">
+      <div class="box-title">glyphs: new</div>
+      <span class="before" style="font-size: 32pt">
+            
+              <div class="cat-glyphs subcat-new">
+                <div class="cell">
+    <div class="tooltip">
+        ᧒
+        <span class="tooltiptext">
+            glyph: twolue<br>
+            gids: [78]<br>
+        </span>
+    </div>
+</div>
+              </div>
+            
+        
+          </span>
+	    
+       </div>
+    
+    </div>
+
+    
+
+    </div>
+</body>
+	<script>
+
+	POSITION = "before"
+	fontToggle = document.getElementById("font-toggle")
+	function switchFonts() {
+	  items = document.getElementsByClassName("box");
+	  console.log("Click from "+POSITION)
+	  
+	  if (POSITION === "before") {
+	  POSITION = "after"
+	  for (item of items) {
+	    item.firstElementChild.textContent = item.firstElementChild.textContent.replace("before", "after")
+            item.lastElementChild.className = item.lastElementChild.className.replace("before", "after")
+	    fontToggle.textContent = "After"
+	  }
+	  } else if (POSITION === "after") {
+	  POSITION = "both"
+	  for (item of items) {
+	    item.firstElementChild.textContent = item.firstElementChild.textContent.replace("after", "both")
+            item.lastElementChild.className = item.lastElementChild.className.replace("after", "both")
+	    fontToggle.textContent = "Both"
+	  }
+
+	  } else {
+	  POSITION = "before"
+	  for (item of items) {
+	    item.firstElementChild.textContent = item.firstElementChild.textContent.replace("both", "before")
+            item.lastElementChild.className = item.lastElementChild.className.replace("both", "before")
+	    fontToggle.textContent = "Before"
+	  }
+	}
+	}
+	fontToggle.addEventListener("click", switchFonts);
+	</script>
+    <script>
+    const divs = document.querySelectorAll('.node');
+    divs.forEach(el => el.addEventListener('click', event => {
+    var children = event.target.querySelectorAll(".node");
+    children.forEach(function(e) {
+        if (e.style.display === "none") {
+            e.style.display = "block";
+        } else {
+            e.style.display = "none";
+        }
+    })
+    }));
+    </script>
+</html>
