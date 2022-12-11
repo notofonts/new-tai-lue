@@ -1,8 +1,10 @@
 {
     "tests": [
         {
-            "input": "๰",
-            "expectation": "uni0E70=0+1024"
+            "input": "᧒",
+            "expectation": "twolue=0+295",
+            "only": "NotoSansNewTaiLue-Regular.ttf",
+            "note": "Issue #2"
         }
     ]
 }
