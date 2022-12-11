@@ -14,52 +14,22 @@ Fontbakery version: 0.8.10
 
 
 * 🔥 **FAIL** PANOSE family type is not the same across this family. In order to fix this, please make sure that the panose.bFamilyType value is the same in the OS/2 table of all of this family font files. [code: inconsistency]
-</div></details><br></div></details><details><summary><b>[9] NotoSansNewTaiLue-Bold.ttf</b></summary><div><details><summary>🔥 <b>FAIL:</b> Check that texts shape as per expectation (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/<Section: Shaping Checks>.html#com.google.fonts/check/shaping/regression">com.google.fonts/check/shaping/regression</a>)</summary><div>
+</div></details><br></div></details><details><summary><b>[9] NotoSansNewTaiLue-Bold.ttf</b></summary><div><details><summary>⚠ <b>WARN:</b> Glyphs are similiar to Google Fonts version? (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/production_glyphs_similarity">com.google.fonts/check/production_glyphs_similarity</a>)</summary><div>
 
 
-* 🔥 **FAIL** qa/shaping_tests/example.json: Expected and actual shaping not matching
-<div class="shaping">
+* ⚠ **WARN** Following glyphs differ greatly from Google Fonts version:
+	* aaySignlue
+	* faLowlue
+	* iiSignlue
+	* iySignlue
+	* mFinallue
+	* maLowlue
+	* oaSignlue
+	* oaySignlue
+	* oySignlue
+	* paLowlue and 14 more.
 
-
-<style type="text/css">
-    @font-face {font-family: "TestFont"; src: url(../../fonts/NotoSansNewTaiLue/googlefonts/ttf/NotoSansNewTaiLue-Bold.ttf);}
-    .tf { font-family: "TestFont"; }
-    .shaping pre { font-size: 1.2rem; }
-    .shaping li {
-        font-size: 1.2rem;
-        border-top: 1px solid #ddd;
-        padding: 12px;
-        margin-top: 12px;
-    }
-    .shaping-svg {
-        height: 100px;
-        margin: 10px;
-        transform: matrix(1, 0, 0, -1, 0, 0);
-    }
-</style>
-
-<h4>qa/shaping_tests/example.json: Expected and actual shaping not matching</h4>
-
-
-</div>
-<div class="shaping">
-
-<li>Shaping did not match: <span class="tf">๰</span></li>
-
-
-<pre>Expected: None</pre>
-
-
-
-<pre>Got     : .notdef=0+600</pre>
-
-
-Got: <svg class="shaping-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 2362" transform="matrix(1 0 0 -1 0 0)">
-<path d="M94.0,0.0L94.0,714.0L505.0,714.0L505.0,0.0L94.0,0.0ZM145.0,51.0L454.0,51.0L454.0,663.0L145.0,663.0L145.0,51.0Z"  transform="translate(0, 793)"/>
-</svg>
-
-
-</div> [code: shaping-regression]
+Use -F or --full-lists to disable shortening of long lists.
 </div></details><details><summary>⚠ <b>WARN:</b> Ensure fonts have ScriptLangTags declared on the 'meta' table. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/meta/script_lang_tags">com.google.fonts/check/meta/script_lang_tags</a>)</summary><div>
 
 
@@ -145,7 +115,7 @@ Use -F or --full-lists to disable shortening of long lists. [code: found-misalig
 
 	* W (U+0057) contains a short segment B<<516.0,375.0>-<513.0,386.0>-<508.5,408.0>> 
 
-	* And 78 more.
+	* And 77 more.
 
 Use -F or --full-lists to disable shortening of long lists. [code: found-short-segments]
 </div></details><details><summary>⚠ <b>WARN:</b> Do any segments have colinear vectors? (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/<Section: Outline Correctness Checks>.html#com.google.fonts/check/outline_colinear_vectors">com.google.fonts/check/outline_colinear_vectors</a>)</summary><div>
@@ -208,52 +178,19 @@ Use -F or --full-lists to disable shortening of long lists. [code: found-jaggy-s
 	* twolue (U+19D2): L<<123.0,-165.0>--<124.0,356.0>> 
 
 	* And twolue (U+19D2): L<<269.0,368.0>--<268.0,-173.0>> [code: found-semi-vertical]
-</div></details><br></div></details><details><summary><b>[8] NotoSansNewTaiLue-Medium.ttf</b></summary><div><details><summary>🔥 <b>FAIL:</b> Check that texts shape as per expectation (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/<Section: Shaping Checks>.html#com.google.fonts/check/shaping/regression">com.google.fonts/check/shaping/regression</a>)</summary><div>
+</div></details><br></div></details><details><summary><b>[8] NotoSansNewTaiLue-Medium.ttf</b></summary><div><details><summary>⚠ <b>WARN:</b> Glyphs are similiar to Google Fonts version? (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/production_glyphs_similarity">com.google.fonts/check/production_glyphs_similarity</a>)</summary><div>
 
 
-* 🔥 **FAIL** qa/shaping_tests/example.json: Expected and actual shaping not matching
-<div class="shaping">
-
-
-<style type="text/css">
-    @font-face {font-family: "TestFont"; src: url(../../fonts/NotoSansNewTaiLue/googlefonts/ttf/NotoSansNewTaiLue-Medium.ttf);}
-    .tf { font-family: "TestFont"; }
-    .shaping pre { font-size: 1.2rem; }
-    .shaping li {
-        font-size: 1.2rem;
-        border-top: 1px solid #ddd;
-        padding: 12px;
-        margin-top: 12px;
-    }
-    .shaping-svg {
-        height: 100px;
-        margin: 10px;
-        transform: matrix(1, 0, 0, -1, 0, 0);
-    }
-</style>
-
-<h4>qa/shaping_tests/example.json: Expected and actual shaping not matching</h4>
-
-
-</div>
-<div class="shaping">
-
-<li>Shaping did not match: <span class="tf">๰</span></li>
-
-
-<pre>Expected: None</pre>
-
-
-
-<pre>Got     : .notdef=0+600</pre>
-
-
-Got: <svg class="shaping-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 2362" transform="matrix(1 0 0 -1 0 0)">
-<path d="M94.0,0.0L94.0,714.0L505.0,714.0L505.0,0.0L94.0,0.0ZM145.0,51.0L454.0,51.0L454.0,663.0L145.0,663.0L145.0,51.0Z"  transform="translate(0, 793)"/>
-</svg>
-
-
-</div> [code: shaping-regression]
+* ⚠ **WARN** Following glyphs differ greatly from Google Fonts version:
+	* faLowlue
+	* iiSignlue
+	* iySignlue
+	* mFinallue
+	* maLowlue
+	* paLowlue
+	* suaLowlue
+	* tone1lue
+	* ueSignlue and ueySignlue
 </div></details><details><summary>⚠ <b>WARN:</b> Combined length of family and style must not exceed 27 characters. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/name/family_and_style_max_length">com.google.fonts/check/name/family_and_style_max_length</a>)</summary><div>
 
 
@@ -318,7 +255,7 @@ The following glyphs do not have the recommended number of contours:
 
 	* a (U+0061) contains a short segment L<<398.0,76.0>--<394.0,76.0>> 
 
-	* And 75 more.
+	* And 74 more.
 
 Use -F or --full-lists to disable shortening of long lists. [code: found-short-segments]
 </div></details><details><summary>⚠ <b>WARN:</b> Do any segments have colinear vectors? (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/<Section: Outline Correctness Checks>.html#com.google.fonts/check/outline_colinear_vectors">com.google.fonts/check/outline_colinear_vectors</a>)</summary><div>
@@ -351,52 +288,16 @@ Use -F or --full-lists to disable shortening of long lists. [code: found-short-s
 	* twolue (U+19D2): L<<146.0,-180.0>--<147.0,351.0>> 
 
 	* And twolue (U+19D2): L<<242.0,373.0>--<241.0,-186.0>> [code: found-semi-vertical]
-</div></details><br></div></details><details><summary><b>[8] NotoSansNewTaiLue-Regular.ttf</b></summary><div><details><summary>🔥 <b>FAIL:</b> Check that texts shape as per expectation (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/<Section: Shaping Checks>.html#com.google.fonts/check/shaping/regression">com.google.fonts/check/shaping/regression</a>)</summary><div>
+</div></details><br></div></details><details><summary><b>[8] NotoSansNewTaiLue-Regular.ttf</b></summary><div><details><summary>⚠ <b>WARN:</b> Glyphs are similiar to Google Fonts version? (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/production_glyphs_similarity">com.google.fonts/check/production_glyphs_similarity</a>)</summary><div>
 
 
-* 🔥 **FAIL** qa/shaping_tests/example.json: Expected and actual shaping not matching
-<div class="shaping">
-
-
-<style type="text/css">
-    @font-face {font-family: "TestFont"; src: url(../../fonts/NotoSansNewTaiLue/googlefonts/ttf/NotoSansNewTaiLue-Regular.ttf);}
-    .tf { font-family: "TestFont"; }
-    .shaping pre { font-size: 1.2rem; }
-    .shaping li {
-        font-size: 1.2rem;
-        border-top: 1px solid #ddd;
-        padding: 12px;
-        margin-top: 12px;
-    }
-    .shaping-svg {
-        height: 100px;
-        margin: 10px;
-        transform: matrix(1, 0, 0, -1, 0, 0);
-    }
-</style>
-
-<h4>qa/shaping_tests/example.json: Expected and actual shaping not matching</h4>
-
-
-</div>
-<div class="shaping">
-
-<li>Shaping did not match: <span class="tf">๰</span></li>
-
-
-<pre>Expected: None</pre>
-
-
-
-<pre>Got     : .notdef=0+600</pre>
-
-
-Got: <svg class="shaping-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 2362" transform="matrix(1 0 0 -1 0 0)">
-<path d="M94.0,0.0L94.0,714.0L505.0,714.0L505.0,0.0L94.0,0.0ZM145.0,51.0L454.0,51.0L454.0,663.0L145.0,663.0L145.0,51.0Z"  transform="translate(0, 793)"/>
-</svg>
-
-
-</div> [code: shaping-regression]
+* ⚠ **WARN** Following glyphs differ greatly from Google Fonts version:
+	* iiSignlue
+	* iySignlue
+	* mFinallue
+	* maLowlue
+	* tone1lue
+	* ueSignlue and ueySignlue
 </div></details><details><summary>⚠ <b>WARN:</b> Combined length of family and style must not exceed 27 characters. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/name/family_and_style_max_length">com.google.fonts/check/name/family_and_style_max_length</a>)</summary><div>
 
 
@@ -461,7 +362,7 @@ The following glyphs do not have the recommended number of contours:
 
 	* W (U+0057) contains a short segment B<<468.0,577.5>-<463.0,600.0>-<461.0,609.0>> 
 
-	* And 85 more.
+	* And 84 more.
 
 Use -F or --full-lists to disable shortening of long lists. [code: found-short-segments]
 </div></details><details><summary>⚠ <b>WARN:</b> Do any segments have colinear vectors? (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/<Section: Outline Correctness Checks>.html#com.google.fonts/check/outline_colinear_vectors">com.google.fonts/check/outline_colinear_vectors</a>)</summary><div>
@@ -492,7 +393,7 @@ Use -F or --full-lists to disable shortening of long lists. [code: found-short-s
 	* twolue (U+19D2): L<<152.0,-183.0>--<153.0,350.0>> 
 
 	* And twolue (U+19D2): L<<235.0,374.0>--<234.0,-189.0>> [code: found-semi-vertical]
-</div></details><br></div></details><details><summary><b>[7] NotoSansNewTaiLue[wght].ttf</b></summary><div><details><summary>💔 <b>ERROR:</b> Check font names are correct (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/font_names">com.google.fonts/check/font_names</a>)</summary><div>
+</div></details><br></div></details><details><summary><b>[6] NotoSansNewTaiLue[wght].ttf</b></summary><div><details><summary>💔 <b>ERROR:</b> Check font names are correct (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/font_names">com.google.fonts/check/font_names</a>)</summary><div>
 
 
 * 💔 **ERROR** The condition <FontBakeryCondition:expected_font_names> had an error: KeyError: 'fvar'
@@ -504,52 +405,6 @@ Use -F or --full-lists to disable shortening of long lists. [code: found-short-s
 
 
 * 💔 **ERROR** The condition <FontBakeryCondition:expected_font_names> had an error: KeyError: 'fvar'
-</div></details><details><summary>🔥 <b>FAIL:</b> Check that texts shape as per expectation (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/<Section: Shaping Checks>.html#com.google.fonts/check/shaping/regression">com.google.fonts/check/shaping/regression</a>)</summary><div>
-
-
-* 🔥 **FAIL** qa/shaping_tests/example.json: Expected and actual shaping not matching
-<div class="shaping">
-
-
-<style type="text/css">
-    @font-face {font-family: "TestFont"; src: url(../../fonts/NotoSansNewTaiLue/googlefonts/variable-ttf/NotoSansNewTaiLue[wght].ttf);}
-    .tf { font-family: "TestFont"; }
-    .shaping pre { font-size: 1.2rem; }
-    .shaping li {
-        font-size: 1.2rem;
-        border-top: 1px solid #ddd;
-        padding: 12px;
-        margin-top: 12px;
-    }
-    .shaping-svg {
-        height: 100px;
-        margin: 10px;
-        transform: matrix(1, 0, 0, -1, 0, 0);
-    }
-</style>
-
-<h4>qa/shaping_tests/example.json: Expected and actual shaping not matching</h4>
-
-
-</div>
-<div class="shaping">
-
-<li>Shaping did not match: <span class="tf">๰</span></li>
-
-
-<pre>Expected: None</pre>
-
-
-
-<pre>Got     : .notdef=0+600</pre>
-
-
-Got: <svg class="shaping-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 2362" transform="matrix(1 0 0 -1 0 0)">
-<path d="M94.0,0.0L94.0,714.0L505.0,714.0L505.0,0.0L94.0,0.0ZM145.0,51.0L454.0,51.0L454.0,663.0L145.0,663.0L145.0,51.0Z"  transform="translate(0, 793)"/>
-</svg>
-
-
-</div> [code: shaping-regression]
 </div></details><details><summary>⚠ <b>WARN:</b> Combined length of family and style must not exceed 27 characters. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/name/family_and_style_max_length">com.google.fonts/check/name/family_and_style_max_length</a>)</summary><div>
 
 
@@ -579,8 +434,8 @@ Please take a look at the conversation at https://github.com/googlefonts/fontbak
 
 | 💔 ERROR | 🔥 FAIL | ⚠ WARN | 💤 SKIP | ℹ INFO | 🍞 PASS | 🔎 DEBUG |
 |:-----:|:----:|:----:|:----:|:----:|:----:|:----:|
-| 3 | 7 | 25 | 427 | 26 | 375 | 0 |
-| 0% | 1% | 3% | 49% | 3% | 43% | 0% |
+| 3 | 3 | 28 | 429 | 26 | 374 | 0 |
+| 0% | 0% | 3% | 50% | 3% | 43% | 0% |
 
 **Note:** The following loglevels were omitted in this report:
 * **SKIP**
