@@ -1,7 +1,7 @@
 {
-.appVersion = "3109";
+.appVersion = "3225";
 DisplayStrings = (
-"/space"
+"/colon.full"
 );
 copyright = "Copyright 2022 The Noto Project Authors (https://github.com/notofonts/new-tai-lue)";
 customParameters = (
@@ -195,7 +195,8 @@ disablesNiceNames = 1;
 familyName = "Noto Sans New Tai Lue";
 featurePrefixes = (
 {
-code = "languagesystem DFLT dflt;\012languagesystem talu dflt;";
+code = "languagesystem DFLT dflt;
+languagesystem talu dflt;";
 name = Languagesystems;
 }
 );
@@ -32215,23 +32216,6 @@ paths = (
 {
 closed = 1;
 nodes = (
-"553 516 OFFCURVE",
-"595 556 OFFCURVE",
-"595 609 CURVE SMOOTH",
-"595 664 OFFCURVE",
-"553 704 OFFCURVE",
-"500 704 CURVE SMOOTH",
-"447 704 OFFCURVE",
-"405 664 OFFCURVE",
-"405 609 CURVE SMOOTH",
-"405 556 OFFCURVE",
-"447 516 OFFCURVE",
-"500 516 CURVE SMOOTH"
-);
-},
-{
-closed = 1;
-nodes = (
 "553 39 OFFCURVE",
 "595 79 OFFCURVE",
 "595 132 CURVE SMOOTH",
@@ -32244,6 +32228,23 @@ nodes = (
 "405 79 OFFCURVE",
 "447 39 OFFCURVE",
 "500 39 CURVE SMOOTH"
+);
+},
+{
+closed = 1;
+nodes = (
+"553 516 OFFCURVE",
+"595 556 OFFCURVE",
+"595 609 CURVE SMOOTH",
+"595 664 OFFCURVE",
+"553 704 OFFCURVE",
+"500 704 CURVE SMOOTH",
+"447 704 OFFCURVE",
+"405 664 OFFCURVE",
+"405 609 CURVE SMOOTH",
+"405 556 OFFCURVE",
+"447 516 OFFCURVE",
+"500 516 CURVE SMOOTH"
 );
 }
 );
