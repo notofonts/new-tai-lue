@@ -195,8 +195,7 @@ disablesNiceNames = 1;
 familyName = "Noto Sans New Tai Lue";
 featurePrefixes = (
 {
-code = "languagesystem DFLT dflt;
-languagesystem talu dflt;";
+code = "languagesystem DFLT dflt;\012languagesystem talu dflt;";
 name = Languagesystems;
 }
 );
