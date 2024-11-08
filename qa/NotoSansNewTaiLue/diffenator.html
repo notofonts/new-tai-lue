@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Diffenator3</title>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+		crossorigin="anonymous"></script>
+	<style type="text/css">
+		@font-face {
+      font-family: "Font Before";
+      src: url();
+    }
+
+    @font-face {
+      font-family: "Font After";
+      src: url();
+    }
+
+    .font-before, .font-after {
+      font-variation-settings: "wght" 400, "wdth" 100;
+    }
+
+    .font-before {
+      font-family: "Font Before", "Adobe Notdef";
+    }
+
+    .font-after {
+      font-family: "Font After", "Adobe Notdef";
+    }
+
+	:root {
+	--node-pt-size: 40px;
+	}
+
+	@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    background-color: #b3d4f5 !important;
+    font-family: "Montserrat", sans-serif !important;
+}
+
+.nav-pills .nav-item.show .nav-link, .nav-pills .nav-link.active {
+    background-color: #ced9e4 !important;
+}
+.nav-item {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 2px;
+}
+
+.nav-pills .nav-link{
+    background-color: #9fcaf5 !important;
+}
+h4 {
+    color: #6f7882 !important;
+}
+
+@font-face {
+    font-family: "Adobe NotDef";
+    src: url(https://cdn.jsdelivr.net/gh/adobe-fonts/adobe-notdef/AND-Regular.ttf);
+}
+
+.box-title {
+    width: 100%;
+    font-size: 8pt;
+    font-weight: 700;
+    border-top: 1px solid black;
+    padding-top: 5px;
+    margin-bottom: 10pt;
+    display: block;
+}
+
+.box {
+    margin-bottom: 20pt;
+    width: 100%;
+    float: left;
+}
+
+.box-text {}
+
+#ui-nav {
+    position: fixed;
+    right: 20px;
+    z-index: 100;
+}
+
+#font-toggle {}
+
+.ui-nav-item {
+    display: block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
+    text-align: center;
+    color: white;
+    background-color: black;
+    display: block;
+    font-size: 14pt;
+    padding: 5px;
+    margin: 2px;
+}
+
+/* Stuff needed for the table differ */
+body {
+    font-family: Helvetica;
+}
+
+.node {
+    font-family: courier;
+    cursor: pointer;
+    position: relative;
+    left: 30px;
+    padding: 5px;
+    display: block;
+    border: 1px dashed grey;
+    background-color: #e9e9ee;
+}
+
+.header {
+    font-weight: bold;
+}
+
+.attr-before {
+    color: green;
+    cursor: text;
+}
+
+.attr-after {
+    color: red;
+    cursor: text;
+}
+
+.leaf {
+    font-weight: bold;
+}
+
+.old .cell .new {
+    display: none;
+}
+
+.new .cell .old {
+    display: none;
+}
+
+.both .cell .old {
+    opacity: 0.75;
+    color: red;
+}
+
+.both .cell .new {
+    opacity: 0.75;
+    position: absolute;
+    top: 0;
+    color: green;
+}
+
+.spacer {
+    display: block;
+    float: left;
+    width: 100%;
+}
+
+#ot-panel {
+    max-height: 400px;
+    overflow-y: scroll;
+    background: white;
+    padding: 10px;
+    display: none;
+   }
+
+   .cell{
+    z-index: -100;
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 5pt;
+    margin: 5pt;
+    width: 50pt;
+    font-size: var(--node-pt-size);
+    line-height: calc(var(--node-pt-size) * 1.5);
+  }
+  .cell-word{
+    z-index: -100;
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 5pt;
+    margin: 5pt;
+    font-size: var(--node-pt-size);
+    line-height: calc(var(--node-pt-size) * 1.5);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+  .cell-glyph{
+    z-index: -100;
+    float: left;
+    display: block;
+    text-align: center;
+    border-radius: 5pt;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    padding: 5pt;
+    margin: 5pt;
+    width: calc(var(--node-pt-size) * 2);
+    min-height: calc(var(--node-pt-size) * 2);
+    font-size: var(--node-pt-size);
+  }
+  .cell-glyph.font-before, .cell-word.font-before {
+    background: #eff6f2;
+  }
+  .cell-glyph.font-after, .cell-word.font-after {
+    background: #f7f4f4;
+  }
+
+  .cell-glyph:hover {
+    box-shadow: none;
+    background: #f0f0f5;
+  }
+  .cat-strings .cell {
+    clear: both;
+    position: static;
+    float: none;
+    text-align: left;
+  }
+  .codepoint {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 10pt;
+    line-height: 10pt;
+  }
+  .box-title {
+    clear: both;
+  }
+  .node.closed::before {
+    content: "+";
+    margin-right: 5pt;
+  }
+  .node.open::before {
+    content: "-";
+    margin-right: 5pt;
+  }
+
+  .tooltip pre {
+    background-color: #6f7882;
+    padding: 5px;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  .tooltip {
+    line-height: 1em;
+  }
+  .tooltip-inner {
+    max-width: 300px;
+  }
+
+  h1,h2,h3,h4,h5 {
+    clear: both;
+  }
+
+  #locationnav li {
+    white-space: wrap;
+  }
+
+  #userdefined div { width: 100%; }
+  
+/* The following rules are used in the WASM version, not in the CLI version.
+   But we keep them here so we can share them between the two versions. */
+
+   .modal-dialog {
+    max-width: 100% !important;
+    margin: 0 !important;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    display: flex;
+  }
+
+  .fontdrop {
+    padding: 30px;
+    border-radius: 20px;
+    outline: 3px dashed #ffffffff;
+    outline-offset: -20px;
+  }
+
+  #fontbefore {
+    background-color: #ddffdddd;
+  }
+
+  #fontafter {
+    background-color: #ffdddddd;
+  }
+
+  .dragging {
+    background-image: linear-gradient(rgb(0 0 0/5%) 0 0);
+    outline: 5px dashed #ffffffff;
+  }
+
+  #diffkerns {
+    max-height: 500px;
+    overflow-y: scroll;
+  }
+		</style>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+		<div id="ui-nav">
+		  <div class="ui-nav-item" id="fonttoggle">Old</div>
+		  <div class="ui-nav-item" id="fontanimate">Animate</div>
+		  <div id="axes">
+		  </div>
+		</div>
+	
+	<div class="row">
+		<div class="col-2">
+			<ul class="nav nav-pills" id="locationnav">
+			</ul>
+		</div>
+		<div class="col-9 mt-3">
+			<div id="title"></div>
+			<div id="cmapdiff"> </div>
+			<div id="main"></div>
+			<div id="userdefined">
+				<h4>User defined sample text</h4>
+				<div contenteditable="true" class="font-before cell-word">
+					You can type your own text here to see it previewed in the fonts.
+				</div>
+				<div style="clear: both"></div>
+			</div>
+			<div id="diffkerns"> </div>
+			<div id="difftable"> </div>
+		</div>
+	</div>
+	<script type="module">
+		function renderTableDiff(node, toplevel) {
+  var wrapper = $("<div> </div>");
+  if (!node) {
+    return wrapper;
+  }
+  if (Array.isArray(node) && node.length == 2) {
+    var before = $("<span/>");
+    before.addClass("attr-before");
+    before.html(" " + node[0] + " ");
+    var after = $("<span/>");
+    after.addClass("attr-after");
+    after.append(renderTableDiff(node[1], true).children());
+    wrapper.append(before);
+    wrapper.append(after);
+    return wrapper;
+  }
+  if (node.constructor != Object) {
+    var thing = $("<span/>");
+    thing.html(node);
+    wrapper.append(thing);
+    return wrapper;
+  }
+  for (const [key, value] of Object.entries(node)) {
+    var display = $("<div/>");
+    display.addClass("node");
+    if (!toplevel) {
+      display.hide();
+    }
+    display.append(key);
+    display.append(renderTableDiff(value, false).children());
+    if (display.children(".node").length > 0) {
+      display.addClass("closed");
+    }
+    wrapper.append(display);
+  }
+  return wrapper;
+}
+
+function addAGlyph(glyph, where) {
+  let title = "";
+  if (glyph.name) {
+    title = "name: " + glyph.name;
+  }
+  let cp =
+    "<br>U+" +
+    glyph.string.codePointAt(0).toString(16).padStart(4, "0").toUpperCase();
+  where.append(`
+        <div class="cell-glyph font-before">
+        <div data-toggle="tooltip" data-html="true" data-title="${glyph.differing_pixels} pixels"> ${glyph.string}
+        <div class="codepoint" data-toggle="tooltip" data-html="true" data-title="${title}">
+		${cp}
+        </div>
+        </div>
+    `);
+}
+
+function addAWord(diff, where) {
+  if (!diff.buffer_b) {
+    diff.buffer_b = diff.buffer_a;
+  }
+  where.append(`
+		<div class="cell-word font-before">
+		<span data-toggle="tooltip" data-html="true" data-title="Before: <pre>${diff.buffer_a}</pre>After: <pre>${diff.buffer_b}</pre><br>difference: ${diff.differing_pixels} pixels">
+		${diff.word}
+		</span>
+		</div>
+	`);
+}
+
+function diffTables(report) {
+  $("#difftable").empty();
+  $("#difftable").append(`<h4 class="mt-2 box-title">Table-level details</h4>`);
+  $("#difftable").append(
+    renderTableDiff({ tables: report["tables"] }, true).children()
+  );
+  $("#difftable .node").on("click", function (e) {
+    $(this).toggleClass("closed open");
+    $(this).children(".node").toggle();
+    e.stopPropagation();
+  });
+}
+function diffKerns(report) {
+  $("#diffkerns").empty();
+  $("#diffkerns").append(`<h4 class="mt-2">Modified Kerns</h4>`);
+  $("#diffkerns").append(
+    `<table class="table table-striped" id="diffkerns"><tr><th>Pair</th><th>Old</old><th>New</th></table>`
+  );
+  for (let [pair, value] of Object.entries(report["kerns"])) {
+    if (pair == "error") {
+      $("#diffkerns").append(`<p class="text-danger">Error: ${value}</p>`);
+      continue;
+    } else {
+      let row = $("<tr>");
+      row.append(`<td>${pair}</td>`);
+      row.append(`<td>${serializeKernBefore(value)}</td>`);
+      row.append(`<td>${serializeKernAfter(value)}</td>`);
+      $("#diffkerns table").append(row);
+    }
+  }
+}
+
+function serializeKernBefore(kern) {
+  if (Array.isArray(kern)) {
+    return serializeKern(kern[0], -1);
+  }
+  return serializeKern(kern, 0);
+}
+
+function serializeKernAfter(kern) {
+  if (Array.isArray(kern)) {
+    return serializeKern(kern[1], -1);
+  }
+  return serializeKern(kern, 1);
+}
+
+function serializeKern(kern, index) {
+  let string = "";
+  if (kern === null || kern === undefined) {
+    return "(null)";
+  }
+  if (kern.x) {
+    string += serializeKernValue(kern.x, index);
+  } else if (kern.y) {
+    string = "0";
+  }
+
+  if (kern.y) {
+    string += "," + serializeKernValue(kern.y, index);
+  }
+  if (!kern.x_placement && !kern.y_placement) {
+    return string;
+  }
+  string += "@";
+  if (kern.x_placement) {
+    string += serializeKernValue(kern.x_placement, index);
+  } else if (kern.y_placement) {
+    string += "0";
+  }
+  if (kern.y_placement) {
+    string += "," + serializeKernValue(kern.y_placement, index);
+  }
+  return string;
+}
+
+function serializeKernValue(kern, index) {
+  if (typeof kern == "number") {
+    return kern;
+  }
+  let string = "(";
+  let verybig = Object.entries(kern).length > 5;
+  for (let [key, value] of Object.entries(kern)) {
+    if (key == "default") {
+      string += value[index] + " ";
+    } else {
+      string += value[index] + "@" + key + " ";
+    }
+    if (verybig) {
+      string += "<br>";
+    }
+  }
+  return string.trim() + ")";
+}
+
+function cmapDiff(report) {
+  if (report.cmap_diff && (report.cmap_diff.new || report.cmap_diff.missing)) {
+    $("#cmapdiff").append(
+      `<h4 class="mt-2">Added and Removed Encoded Glyphs</h4>`
+    );
+    if (report["cmap_diff"]["new"]) {
+      $("#cmapdiff").append(`<h4 class="box-title">Added Glyphs</h4>`);
+      let added = $("<div>");
+      for (let glyph of report["cmap_diff"]["new"]) {
+        addAGlyph(glyph, added);
+      }
+      $("#cmapdiff").append(added);
+    }
+
+    if (report["cmap_diff"]["missing"]) {
+      $("#cmapdiff").append(`<h4 class="box-title">Removed Glyphs</h4>`);
+      let missing = $("<div>");
+      for (let glyph of report["cmap_diff"]["missing"]) {
+        addAGlyph(glyph, missing);
+      }
+      $("#cmapdiff").append(missing);
+    }
+  } else {
+    $("#cmapdiff").append(`<p>No changes to encoded glyphs</p>`);
+  }
+}
+
+function setupAnimation() {
+  $("#fonttoggle").click(function () {
+    if ($(this).text() == "Old") {
+      $(this).text("New");
+      $(".font-before").removeClass("font-before").addClass("font-after");
+    } else {
+      $(this).text("Old");
+      $(".font-after").removeClass("font-after").addClass("font-before");
+    }
+  });
+
+  let animationHandle;
+  function animate() {
+    $("#fonttoggle").click();
+    animationHandle = setTimeout(animate, 1000);
+  }
+  $("#fontanimate").click(function () {
+    if ($(this).text() == "Animate") {
+      $(this).text("Stop");
+      animate();
+    } else {
+      $(this).text("Animate");
+      clearTimeout(animationHandle);
+    }
+  });
+}
+
+export {
+  renderTableDiff,
+  addAGlyph,
+  addAWord,
+  cmapDiff,
+  diffTables,
+  diffKerns,
+  setupAnimation,
+};
+
+	var report = {"tables":{"GPOS":{"script_list":{"DFLT/dflt":[null,{"lookups":[0]}]},"lookup_list":{"0":{"0":{"qaHighlue":[{"uSignlue":{"x":{"default":35,"wght=700":0}}},null],"qaLowlue":[{"uSignlue":{"x":{"wght=700":0,"default":35}}},null],"xaHighlue":[{"uSignlue":{"x":{"wght=700":0,"default":35}}},null],"ngaLowlue":[{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"default":20,"wght=700":0}}},null],"yaHighlue":[{"faHighlue":{"x":{"wght=700":0,"default":25}},"uSignlue":{"x":{"wght=700":0,"default":-20}}},null],"tsaLowlue":[{"uSignlue":{"x":{"default":35,"wght=700":0}}},null],"saLowlue":[{"uSignlue":{"x":{"wght=700":0,"default":35}}},null],"thaHighlue":[{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"wght=700":0,"default":20}}},null],"taLowlue":[{"faHighlue":{"x":{"default":15,"wght=700":0}}},null],"naLowlue":[{"xaLowlue":{"x":{"default":10,"wght=700":0}},"saLowlue":{"x":{"wght=700":0,"default":10}},"taLowlue":{"x":{"wght=700":0,"default":10}},"faHighlue":{"x":{"wght=700":0,"default":25}},"faLowlue":{"x":{"default":10,"wght=700":0}},"xvaLowlue":{"x":{"default":10,"wght=700":0}},"suaLowlue":{"x":{"default":10,"wght=700":0}},"tvaLowlue":{"x":{"default":10,"wght=700":0}},"iiSignlue":{"x":{"wght=700":0,"default":10}},"uSignlue":{"x":{"wght=700":0,"default":20}},"oSignlue":{"x":{"default":10,"wght=700":0}},"ueSignlue":{"x":{"default":10,"wght=700":0}},"ueySignlue":{"x":{"default":10,"wght=700":0}},"iySignlue":{"x":{"default":10,"wght=700":0}}},null],"paHighlue":[{"faHighlue":{"x":{"wght=700":0,"default":25}},"uSignlue":{"x":{"default":-20,"wght=700":0}}},null],"phaHighlue":{"dFinallue":[{"x":{"default":-30,"wght=700":0}},null]},"paLowlue":[{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"default":20,"wght=700":0}}},null],"maLowlue":[{"uSignlue":{"x":{"wght=700":0,"default":35}}},null],"faHighlue":[{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"wght=700":0,"default":-20}}},null],"daHighlue":[{"uSignlue":{"x":{"wght=700":0,"default":35}}},null],"haLowlue":[{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"default":20,"wght=700":0}}},null],"daLowlue":[{"uSignlue":{"x":{"default":35,"wght=700":0}}},null],"xvaHighlue":[{"uSignlue":{"x":{"wght=700":0,"default":35}}},null],"suaLowlue":{"laHighlue":[{"x":{"default":20,"wght=700":0}},null],"xvaHighlue":[{"x":{"wght=700":0,"default":20}},null],"kvaLowlue":[{"x":{"wght=700":0,"default":20}},null],"xvaLowlue":[{"x":{"default":10,"wght=700":0}},null],"tvaLowlue":[{"x":{"wght=700":0,"default":20}},null],"dFinallue":[{"x":{"wght=700":0,"default":-40}},null]},"tvaLowlue":[{"faHighlue":{"x":{"wght=700":0,"default":15}}},null],"laelue":[{"faHighlue":{"x":{"wght=700":0,"default":25}},"uSignlue":{"x":{"wght=700":0,"default":-20}}},null],"laevlue":[{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"wght=700":0,"default":-20}}},null],"uSignlue":[{"faHighlue":{"x":{"wght=700":0,"default":25}},"uSignlue":{"x":{"default":20,"wght=700":0}}},null],"eSignlue":[{"dFinallue":{"x":{"wght=700":0,"default":-15}}},null],"aeSignlue":[{"dFinallue":{"x":{"wght=700":0,"default":-15}}},null],"oSignlue":{"xaLowlue":[{"x":{"wght=700":0,"default":-25}},null],"saLowlue":[{"x":{"default":-25,"wght=700":0}},null],"taLowlue":[{"x":{"default":-25,"wght=700":0}},null],"faLowlue":[{"x":{"wght=700":0,"default":-25}},null],"daHighlue":[{"x":{"default":-50,"wght=700":0}},null],"haLowlue":[{"x":{"default":15,"wght=700":0}},null],"daLowlue":[{"x":{"wght=700":0,"default":-50}},null],"xvaLowlue":[{"x":{"default":-25,"wght=700":0}},null],"suaLowlue":[{"x":{"default":-25,"wght=700":0}},null],"tvaLowlue":[{"x":{"wght=700":0,"default":-25}},null],"iiSignlue":[{"x":{"wght=700":0,"default":-25}},null],"oSignlue":[{"x":{"wght=700":0,"default":-25}},null],"oaSignlue":[{"x":{"default":15,"wght=700":0}},null],"ueSignlue":[{"x":{"default":-25,"wght=700":0}},null],"oaySignlue":[{"x":{"default":15,"wght=700":0}},null],"ueySignlue":[{"x":{"default":-25,"wght=700":0}},null],"iySignlue":[{"x":{"default":-25,"wght=700":0}},null],"eightlue":[{"x":{"wght=700":0,"default":15}},null]},"oaSignlue":{"dFinallue":[{"x":{"default":-30,"wght=700":0}},null]},"aySignlue":[{"kaHighlue":{"x":{"default":-20,"wght=700":0}},"ngaHighlue":{"x":{"wght=700":0,"default":-20}},"kaLowlue":{"x":{"wght=700":0,"default":-20}},"tsaLowlue":{"x":{"default":-20,"wght=700":0}},"yaLowlue":{"x":{"wght=700":0,"default":-20}},"taHighlue":{"x":{"wght=700":0,"default":-20}},"naHighlue":{"x":{"default":-20,"wght=700":0}},"thaLowlue":{"x":{"default":-20,"wght=700":0}},"paHighlue":{"x":{"default":-20,"wght=700":0}},"maHighlue":{"x":{"wght=700":0,"default":-20}},"paLowlue":{"x":{"default":-20,"wght=700":0}},"maLowlue":{"x":{"default":-20,"wght=700":0}},"faHighlue":{"x":{"wght=700":0,"default":15}},"vaHighlue":{"x":{"default":-20,"wght=700":0}},"laHighlue":{"x":{"wght=700":0,"default":-20}},"vaLowlue":{"x":{"default":-20,"wght=700":0}},"laLowlue":{"x":{"default":-20,"wght=700":0}},"haHighlue":{"x":{"default":-20,"wght=700":0}},"baHighlue":{"x":{"wght=700":0,"default":-20}},"baLowlue":{"x":{"default":-20,"wght=700":0}},"kvaHighlue":{"x":{"default":-20,"wght=700":0}},"kvaLowlue":{"x":{"default":-20,"wght=700":0}},"tvaHighlue":{"x":{"wght=700":0,"default":-20}},"lvaLowlue":{"x":{"default":-20,"wght=700":0}},"laelue":{"x":{"wght=700":0,"default":-20}},"laevlue":{"x":{"default":-20,"wght=700":0}},"eSignlue":{"x":{"wght=700":0,"default":-20}},"aeSignlue":{"x":{"wght=700":0,"default":-20}},"oySignlue":{"x":{"default":-20,"wght=700":0}},"tone1lue":{"x":{"wght=700":0,"default":-20}},"tone2lue":{"x":{"default":-20,"wght=700":0}},"vFinallue":{"x":{"default":-20,"wght=700":0}},"mFinallue":{"x":{"default":-20,"wght=700":0}},"kFinallue":{"x":{"wght=700":0,"default":-20}},"bFinallue":{"x":{"default":-20,"wght=700":0}},"zerolue":{"x":{"wght=700":0,"default":-20}}},null],"aaySignlue":[{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"wght=700":0,"default":20}}},null],"uySignlue":[{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"wght=700":0,"default":20}}},null],"oySignlue":[{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"default":20,"wght=700":0}}},null],"oaySignlue":[{"faHighlue":{"x":{"wght=700":0,"default":25}},"uSignlue":{"x":{"wght=700":0,"default":-20}}},null],"ueySignlue":[{"faHighlue":{"x":{"wght=700":0,"default":25}},"uSignlue":{"x":{"default":20,"wght=700":0}}},null],"iySignlue":[{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"wght=700":0,"default":20}}},null],"tone1lue":[{"faHighlue":{"x":{"default":15,"wght=700":0}}},null],"tone2lue":[{"faHighlue":{"x":{"wght=700":0,"default":15}}},null],"vFinallue":[{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"wght=700":0,"default":20}}},null],"ngFinallue":[{"faHighlue":{"x":{"wght=700":0,"default":25}},"uSignlue":{"x":{"default":20,"wght=700":0}}},null],"nFinallue":[{"xaLowlue":{"x":{"wght=700":0,"default":10}},"saLowlue":{"x":{"default":10,"wght=700":0}},"taLowlue":{"x":{"wght=700":0,"default":10}},"faHighlue":{"x":{"default":25,"wght=700":0}},"faLowlue":{"x":{"wght=700":0,"default":10}},"xvaLowlue":{"x":{"default":10,"wght=700":0}},"suaLowlue":{"x":{"default":10,"wght=700":0}},"tvaLowlue":{"x":{"default":10,"wght=700":0}},"iiSignlue":{"x":{"wght=700":0,"default":10}},"uSignlue":{"x":{"default":20,"wght=700":0}},"oSignlue":{"x":{"default":10,"wght=700":0}},"ueSignlue":{"x":{"default":10,"wght=700":0}},"ueySignlue":{"x":{"default":10,"wght=700":0}},"iySignlue":{"x":{"default":10,"wght=700":0}}},null],"mFinallue":[{"uSignlue":{"x":{"wght=700":0,"default":35}}},null],"kFinallue":[{"faHighlue":{"x":{"wght=700":0,"default":25}},"uSignlue":{"x":{"default":20,"wght=700":0}}},null],"dFinallue":[{"uSignlue":{"x":{"wght=700":0,"default":35}}},null],"bFinallue":[{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"wght=700":0,"default":20}}},null],"eightlue":{"dFinallue":[{"x":{"wght=700":0,"default":-30}},null]}},"1":{"classes":[{"@CLASS_L_0":[],"@CLASS_L_1":["ngaLowlue","thaHighlue","naLowlue","paLowlue","haLowlue","uSignlue","aaySignlue","uySignlue","oySignlue","ueySignlue","iySignlue","vFinallue","ngFinallue","nFinallue","kFinallue","bFinallue"],"@CLASS_L_2":["qaHighlue","qaLowlue","xaHighlue","tsaLowlue","saLowlue","maLowlue","daHighlue","daLowlue","xvaHighlue","mFinallue","dFinallue"],"@CLASS_L_3":["yaHighlue","paHighlue","faHighlue","laelue","laevlue","oaySignlue"],"@CLASS_L_4":["phaHighlue","oaSignlue","eightlue"],"@CLASS_L_5":["eSignlue","aeSignlue"],"@CLASS_L_6":["iiSignlue","ueSignlue"],"@CLASS_L_7":["lvaLowlue"],"@CLASS_L_8":["uuSignlue"],"@CLASS_R_1":["kaHighlue","ngaHighlue","kaLowlue","tsaLowlue","yaLowlue","taHighlue","naHighlue","thaLowlue","paHighlue","maHighlue","paLowlue","maLowlue","vaHighlue","laHighlue","vaLowlue","laLowlue","haHighlue","baHighlue","baLowlue","kvaHighlue","kvaLowlue","laelue","laevlue","eSignlue","aeSignlue","oySignlue","tone1lue","tone2lue","vFinallue","mFinallue","kFinallue","bFinallue","zerolue"],"@CLASS_R_2":["xaLowlue","saLowlue","taLowlue","faLowlue","xvaLowlue","suaLowlue","iiSignlue","oSignlue","ueSignlue","ueySignlue","iySignlue"],"@CLASS_R_3":["qaHighlue","qaLowlue","saHighlue","phaLowlue","suaHighlue","aaSignlue","aaySignlue"],"@CLASS_R_4":["xaHighlue","daHighlue","daLowlue","xvaHighlue"],"@CLASS_R_5":["haLowlue","oaSignlue","oaySignlue","eightlue"],"@CLASS_R_6":["ngaLowlue","naLowlue","ngFinallue","nFinallue"],"@CLASS_R_7":["tsaHighlue","yaHighlue","thaHighlue","phaHighlue"],"@CLASS_R_8":["tvaHighlue","lvaLowlue"],"@CLASS_R_9":["tvaLowlue"]},null],"kerns":[{"@CLASS_L_0":{"@All":{"x":0},"@CLASS_R_1":{"x":0},"@CLASS_R_2":{"x":0},"@CLASS_R_3":{"x":0},"@CLASS_R_4":{"x":{"wght=700":0,"default":-10}},"@CLASS_R_5":{"x":0},"@CLASS_R_6":{"x":0},"@CLASS_R_7":{"x":0},"@CLASS_R_8":{"x":0},"@CLASS_R_9":{"x":0}},"@CLASS_L_1":{"@All":{"x":0},"@CLASS_R_1":{"x":0},"@CLASS_R_2":{"x":0},"@CLASS_R_3":{"x":{"default":-15,"wght=700":0}},"@CLASS_R_4":{"x":{"default":20,"wght=700":0}},"@CLASS_R_5":{"x":0},"@CLASS_R_6":{"x":{"default":20,"wght=700":0}},"@CLASS_R_7":{"x":0},"@CLASS_R_8":{"x":0},"@CLASS_R_9":{"x":0}},"@CLASS_L_2":{"@All":{"x":0},"@CLASS_R_1":{"x":0},"@CLASS_R_2":{"x":0},"@CLASS_R_3":{"x":0},"@CLASS_R_4":{"x":{"wght=700":0,"default":25}},"@CLASS_R_5":{"x":0},"@CLASS_R_6":{"x":0},"@CLASS_R_7":{"x":{"default":10,"wght=700":0}},"@CLASS_R_8":{"x":0},"@CLASS_R_9":{"x":0}},"@CLASS_L_3":{"@All":{"x":0},"@CLASS_R_1":{"x":{"wght=700":0,"default":-10}},"@CLASS_R_2":{"x":{"default":20,"wght=700":0}},"@CLASS_R_3":{"x":{"default":-10,"wght=700":0}},"@CLASS_R_4":{"x":{"wght=700":0,"default":-10}},"@CLASS_R_5":{"x":{"default":-15,"wght=700":0}},"@CLASS_R_6":{"x":{"wght=700":0,"default":-10}},"@CLASS_R_7":{"x":0},"@CLASS_R_8":{"x":{"wght=700":0,"default":-10}},"@CLASS_R_9":{"x":{"default":20,"wght=700":0}}},"@CLASS_L_4":{"@All":{"x":0},"@CLASS_R_1":{"x":{"default":-20,"wght=700":-30}},"@CLASS_R_2":{"x":{"default":-10,"wght=700":0}},"@CLASS_R_3":{"x":0},"@CLASS_R_4":{"x":{"default":-25,"wght=700":0}},"@CLASS_R_5":{"x":{"default":10,"wght=700":0}},"@CLASS_R_6":{"x":0},"@CLASS_R_7":{"x":0},"@CLASS_R_8":{"x":{"default":-20,"wght=700":-30}},"@CLASS_R_9":{"x":{"wght=700":0,"default":-10}}},"@CLASS_L_5":{"@All":{"x":0},"@CLASS_R_1":{"x":0},"@CLASS_R_2":{"x":0},"@CLASS_R_3":{"x":0},"@CLASS_R_4":{"x":{"default":-15,"wght=700":0}},"@CLASS_R_5":{"x":0},"@CLASS_R_6":{"x":0},"@CLASS_R_7":{"x":0},"@CLASS_R_8":{"x":0},"@CLASS_R_9":{"x":0}},"@CLASS_L_6":{"@All":{"x":0},"@CLASS_R_1":{"x":0},"@CLASS_R_2":{"x":{"wght=700":0,"default":10}},"@CLASS_R_3":{"x":0},"@CLASS_R_4":{"x":0},"@CLASS_R_5":{"x":{"wght=700":0,"default":-10}},"@CLASS_R_6":{"x":0},"@CLASS_R_7":{"x":0},"@CLASS_R_8":{"x":0},"@CLASS_R_9":{"x":{"wght=700":0,"default":10}}},"@CLASS_L_7":{"@All":{"x":0},"@CLASS_R_1":{"x":0},"@CLASS_R_2":{"x":0},"@CLASS_R_3":{"x":0},"@CLASS_R_4":{"x":{"default":-10,"wght=700":0}},"@CLASS_R_5":{"x":0},"@CLASS_R_6":{"x":0},"@CLASS_R_7":{"x":0},"@CLASS_R_8":{"x":0},"@CLASS_R_9":{"x":0}},"@CLASS_L_8":{"@All":{"x":0},"@CLASS_R_1":{"x":0},"@CLASS_R_2":{"x":{"default":-10,"wght=700":0}},"@CLASS_R_3":{"x":0},"@CLASS_R_4":{"x":0},"@CLASS_R_5":{"x":0},"@CLASS_R_6":{"x":0},"@CLASS_R_7":{"x":0},"@CLASS_R_8":{"x":0},"@CLASS_R_9":{"x":{"default":-10,"wght=700":0}}}},null],"qaHighlue":[null,{"uSignlue":{"x":{"default":35,"wght=700":0}}}],"qaLowlue":[null,{"uSignlue":{"x":{"wght=700":0,"default":35}}}],"xaHighlue":[null,{"uSignlue":{"x":{"default":35,"wght=700":0}}}],"ngaLowlue":[null,{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"default":20,"wght=700":0}}}],"yaHighlue":[null,{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"default":-20,"wght=700":0}}}],"tsaLowlue":[null,{"uSignlue":{"x":{"wght=700":0,"default":35}}}],"saLowlue":[null,{"uSignlue":{"x":{"default":35,"wght=700":0}}}],"thaHighlue":[null,{"faHighlue":{"x":{"wght=700":0,"default":25}},"uSignlue":{"x":{"default":20,"wght=700":0}}}],"taLowlue":[null,{"faHighlue":{"x":{"default":15,"wght=700":0}}}],"naLowlue":[null,{"xaLowlue":{"x":{"default":10,"wght=700":0}},"saLowlue":{"x":{"wght=700":0,"default":10}},"taLowlue":{"x":{"default":10,"wght=700":0}},"faHighlue":{"x":{"default":25,"wght=700":0}},"faLowlue":{"x":{"default":10,"wght=700":0}},"xvaLowlue":{"x":{"default":10,"wght=700":0}},"suaLowlue":{"x":{"default":10,"wght=700":0}},"tvaLowlue":{"x":{"wght=700":0,"default":10}},"iiSignlue":{"x":{"wght=700":0,"default":10}},"uSignlue":{"x":{"wght=700":0,"default":20}},"oSignlue":{"x":{"wght=700":0,"default":10}},"ueSignlue":{"x":{"wght=700":0,"default":10}},"ueySignlue":{"x":{"default":10,"wght=700":0}},"iySignlue":{"x":{"default":10,"wght=700":0}}}],"paHighlue":[null,{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"default":-20,"wght=700":0}}}],"phaHighlue":[null,{"dFinallue":{"x":{"wght=700":0,"default":-30}}}],"paLowlue":[null,{"faHighlue":{"x":{"wght=700":0,"default":25}},"uSignlue":{"x":{"default":20,"wght=700":0}}}],"maLowlue":[null,{"uSignlue":{"x":{"default":35,"wght=700":0}}}],"faHighlue":[null,{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"wght=700":0,"default":-20}}}],"daHighlue":[null,{"uSignlue":{"x":{"wght=700":0,"default":35}}}],"haLowlue":[null,{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"wght=700":0,"default":20}}}],"daLowlue":[null,{"uSignlue":{"x":{"default":35,"wght=700":0}}}],"xvaHighlue":[null,{"uSignlue":{"x":{"wght=700":0,"default":35}}}],"suaLowlue":[null,{"laHighlue":{"x":{"default":20,"wght=700":0}},"xvaHighlue":{"x":{"default":20,"wght=700":0}},"kvaLowlue":{"x":{"default":20,"wght=700":0}},"xvaLowlue":{"x":{"default":10,"wght=700":0}},"tvaLowlue":{"x":{"default":20,"wght=700":0}},"dFinallue":{"x":{"default":-40,"wght=700":0}}}],"tvaLowlue":[null,{"faHighlue":{"x":{"wght=700":0,"default":15}}}],"laelue":[null,{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"default":-20,"wght=700":0}}}],"laevlue":[null,{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"default":-20,"wght=700":0}}}],"uSignlue":[null,{"faHighlue":{"x":{"wght=700":0,"default":25}},"uSignlue":{"x":{"wght=700":0,"default":20}}}],"eSignlue":[null,{"dFinallue":{"x":{"wght=700":0,"default":-15}}}],"aeSignlue":[null,{"dFinallue":{"x":{"default":-15,"wght=700":0}}}],"oSignlue":[null,{"xaLowlue":{"x":{"default":-25,"wght=700":0}},"saLowlue":{"x":{"default":-25,"wght=700":0}},"taLowlue":{"x":{"wght=700":0,"default":-25}},"faLowlue":{"x":{"default":-25,"wght=700":0}},"daHighlue":{"x":{"default":-50,"wght=700":0}},"haLowlue":{"x":{"wght=700":0,"default":15}},"daLowlue":{"x":{"wght=700":0,"default":-50}},"xvaLowlue":{"x":{"wght=700":0,"default":-25}},"suaLowlue":{"x":{"wght=700":0,"default":-25}},"tvaLowlue":{"x":{"default":-25,"wght=700":0}},"iiSignlue":{"x":{"wght=700":0,"default":-25}},"oSignlue":{"x":{"wght=700":0,"default":-25}},"oaSignlue":{"x":{"default":15,"wght=700":0}},"ueSignlue":{"x":{"default":-25,"wght=700":0}},"oaySignlue":{"x":{"wght=700":0,"default":15}},"ueySignlue":{"x":{"wght=700":0,"default":-25}},"iySignlue":{"x":{"default":-25,"wght=700":0}},"eightlue":{"x":{"wght=700":0,"default":15}}}],"oaSignlue":[null,{"dFinallue":{"x":{"wght=700":0,"default":-30}}}],"aySignlue":[null,{"kaHighlue":{"x":{"wght=700":0,"default":-20}},"ngaHighlue":{"x":{"wght=700":0,"default":-20}},"kaLowlue":{"x":{"wght=700":0,"default":-20}},"tsaLowlue":{"x":{"wght=700":0,"default":-20}},"yaLowlue":{"x":{"default":-20,"wght=700":0}},"taHighlue":{"x":{"default":-20,"wght=700":0}},"naHighlue":{"x":{"default":-20,"wght=700":0}},"thaLowlue":{"x":{"wght=700":0,"default":-20}},"paHighlue":{"x":{"default":-20,"wght=700":0}},"maHighlue":{"x":{"wght=700":0,"default":-20}},"paLowlue":{"x":{"default":-20,"wght=700":0}},"maLowlue":{"x":{"wght=700":0,"default":-20}},"faHighlue":{"x":{"default":15,"wght=700":0}},"vaHighlue":{"x":{"default":-20,"wght=700":0}},"laHighlue":{"x":{"wght=700":0,"default":-20}},"vaLowlue":{"x":{"wght=700":0,"default":-20}},"laLowlue":{"x":{"default":-20,"wght=700":0}},"haHighlue":{"x":{"default":-20,"wght=700":0}},"baHighlue":{"x":{"wght=700":0,"default":-20}},"baLowlue":{"x":{"default":-20,"wght=700":0}},"kvaHighlue":{"x":{"wght=700":0,"default":-20}},"kvaLowlue":{"x":{"wght=700":0,"default":-20}},"tvaHighlue":{"x":{"default":-20,"wght=700":0}},"lvaLowlue":{"x":{"default":-20,"wght=700":0}},"laelue":{"x":{"wght=700":0,"default":-20}},"laevlue":{"x":{"wght=700":0,"default":-20}},"eSignlue":{"x":{"wght=700":0,"default":-20}},"aeSignlue":{"x":{"default":-20,"wght=700":0}},"oySignlue":{"x":{"default":-20,"wght=700":0}},"tone1lue":{"x":{"wght=700":0,"default":-20}},"tone2lue":{"x":{"wght=700":0,"default":-20}},"vFinallue":{"x":{"default":-20,"wght=700":0}},"mFinallue":{"x":{"default":-20,"wght=700":0}},"kFinallue":{"x":{"default":-20,"wght=700":0}},"bFinallue":{"x":{"default":-20,"wght=700":0}},"zerolue":{"x":{"default":-20,"wght=700":0}}}],"aaySignlue":[null,{"faHighlue":{"x":{"wght=700":0,"default":25}},"uSignlue":{"x":{"wght=700":0,"default":20}}}],"uySignlue":[null,{"faHighlue":{"x":{"wght=700":0,"default":25}},"uSignlue":{"x":{"default":20,"wght=700":0}}}],"oySignlue":[null,{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"default":20,"wght=700":0}}}],"oaySignlue":[null,{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"wght=700":0,"default":-20}}}],"ueySignlue":[null,{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"default":20,"wght=700":0}}}],"iySignlue":[null,{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"default":20,"wght=700":0}}}],"tone1lue":[null,{"faHighlue":{"x":{"default":15,"wght=700":0}}}],"tone2lue":[null,{"faHighlue":{"x":{"default":15,"wght=700":0}}}],"vFinallue":[null,{"faHighlue":{"x":{"wght=700":0,"default":25}},"uSignlue":{"x":{"default":20,"wght=700":0}}}],"ngFinallue":[null,{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"default":20,"wght=700":0}}}],"nFinallue":[null,{"xaLowlue":{"x":{"wght=700":0,"default":10}},"saLowlue":{"x":{"default":10,"wght=700":0}},"taLowlue":{"x":{"wght=700":0,"default":10}},"faHighlue":{"x":{"wght=700":0,"default":25}},"faLowlue":{"x":{"wght=700":0,"default":10}},"xvaLowlue":{"x":{"default":10,"wght=700":0}},"suaLowlue":{"x":{"wght=700":0,"default":10}},"tvaLowlue":{"x":{"wght=700":0,"default":10}},"iiSignlue":{"x":{"wght=700":0,"default":10}},"uSignlue":{"x":{"default":20,"wght=700":0}},"oSignlue":{"x":{"default":10,"wght=700":0}},"ueSignlue":{"x":{"default":10,"wght=700":0}},"ueySignlue":{"x":{"wght=700":0,"default":10}},"iySignlue":{"x":{"default":10,"wght=700":0}}}],"mFinallue":[null,{"uSignlue":{"x":{"wght=700":0,"default":35}}}],"kFinallue":[null,{"faHighlue":{"x":{"default":25,"wght=700":0}},"uSignlue":{"x":{"wght=700":0,"default":20}}}],"dFinallue":[null,{"uSignlue":{"x":{"default":35,"wght=700":0}}}],"bFinallue":[null,{"faHighlue":{"x":{"wght=700":0,"default":25}},"uSignlue":{"x":{"default":20,"wght=700":0}}}],"eightlue":[null,{"dFinallue":{"x":{"default":-30,"wght=700":0}}}]},"2":[null,{"type":"pair","classes":{"@CLASS_L_0":[],"@CLASS_L_1":["ngaLowlue","thaHighlue","naLowlue","paLowlue","haLowlue","uSignlue","aaySignlue","uySignlue","oySignlue","ueySignlue","iySignlue","vFinallue","ngFinallue","nFinallue","kFinallue","bFinallue"],"@CLASS_L_2":["qaHighlue","qaLowlue","xaHighlue","tsaLowlue","saLowlue","maLowlue","daHighlue","daLowlue","xvaHighlue","mFinallue","dFinallue"],"@CLASS_L_3":["yaHighlue","paHighlue","faHighlue","laelue","laevlue","oaySignlue"],"@CLASS_L_4":["phaHighlue","oaSignlue","eightlue"],"@CLASS_L_5":["eSignlue","aeSignlue"],"@CLASS_L_6":["iiSignlue","ueSignlue"],"@CLASS_L_7":["lvaLowlue"],"@CLASS_L_8":["uuSignlue"],"@CLASS_R_1":["kaHighlue","ngaHighlue","kaLowlue","tsaLowlue","yaLowlue","taHighlue","naHighlue","thaLowlue","paHighlue","maHighlue","paLowlue","maLowlue","vaHighlue","laHighlue","vaLowlue","laLowlue","haHighlue","baHighlue","baLowlue","kvaHighlue","kvaLowlue","laelue","laevlue","eSignlue","aeSignlue","oySignlue","tone1lue","tone2lue","vFinallue","mFinallue","kFinallue","bFinallue","zerolue"],"@CLASS_R_2":["xaLowlue","saLowlue","taLowlue","faLowlue","xvaLowlue","suaLowlue","iiSignlue","oSignlue","ueSignlue","ueySignlue","iySignlue"],"@CLASS_R_3":["qaHighlue","qaLowlue","saHighlue","phaLowlue","suaHighlue","aaSignlue","aaySignlue"],"@CLASS_R_4":["xaHighlue","daHighlue","daLowlue","xvaHighlue"],"@CLASS_R_5":["haLowlue","oaSignlue","oaySignlue","eightlue"],"@CLASS_R_6":["ngaLowlue","naLowlue","ngFinallue","nFinallue"],"@CLASS_R_7":["tsaHighlue","yaHighlue","thaHighlue","phaHighlue"],"@CLASS_R_8":["tvaHighlue","lvaLowlue"],"@CLASS_R_9":["tvaLowlue"]},"kerns":{"@CLASS_L_0":{"@All":{"x":0},"@CLASS_R_1":{"x":0},"@CLASS_R_2":{"x":0},"@CLASS_R_3":{"x":0},"@CLASS_R_4":{"x":{"default":-10,"wght=700":0}},"@CLASS_R_5":{"x":0},"@CLASS_R_6":{"x":0},"@CLASS_R_7":{"x":0},"@CLASS_R_8":{"x":0},"@CLASS_R_9":{"x":0}},"@CLASS_L_1":{"@All":{"x":0},"@CLASS_R_1":{"x":0},"@CLASS_R_2":{"x":0},"@CLASS_R_3":{"x":{"default":-15,"wght=700":0}},"@CLASS_R_4":{"x":{"default":20,"wght=700":0}},"@CLASS_R_5":{"x":0},"@CLASS_R_6":{"x":{"default":20,"wght=700":0}},"@CLASS_R_7":{"x":0},"@CLASS_R_8":{"x":0},"@CLASS_R_9":{"x":0}},"@CLASS_L_2":{"@All":{"x":0},"@CLASS_R_1":{"x":0},"@CLASS_R_2":{"x":0},"@CLASS_R_3":{"x":0},"@CLASS_R_4":{"x":{"wght=700":0,"default":25}},"@CLASS_R_5":{"x":0},"@CLASS_R_6":{"x":0},"@CLASS_R_7":{"x":{"default":10,"wght=700":0}},"@CLASS_R_8":{"x":0},"@CLASS_R_9":{"x":0}},"@CLASS_L_3":{"@All":{"x":0},"@CLASS_R_1":{"x":{"wght=700":0,"default":-10}},"@CLASS_R_2":{"x":{"default":20,"wght=700":0}},"@CLASS_R_3":{"x":{"default":-10,"wght=700":0}},"@CLASS_R_4":{"x":{"default":-10,"wght=700":0}},"@CLASS_R_5":{"x":{"default":-15,"wght=700":0}},"@CLASS_R_6":{"x":{"wght=700":0,"default":-10}},"@CLASS_R_7":{"x":0},"@CLASS_R_8":{"x":{"wght=700":0,"default":-10}},"@CLASS_R_9":{"x":{"wght=700":0,"default":20}}},"@CLASS_L_4":{"@All":{"x":0},"@CLASS_R_1":{"x":{"wght=700":-30,"default":-20}},"@CLASS_R_2":{"x":{"wght=700":0,"default":-10}},"@CLASS_R_3":{"x":0},"@CLASS_R_4":{"x":{"wght=700":0,"default":-25}},"@CLASS_R_5":{"x":{"wght=700":0,"default":10}},"@CLASS_R_6":{"x":0},"@CLASS_R_7":{"x":0},"@CLASS_R_8":{"x":{"wght=700":-30,"default":-20}},"@CLASS_R_9":{"x":{"wght=700":0,"default":-10}}},"@CLASS_L_5":{"@All":{"x":0},"@CLASS_R_1":{"x":0},"@CLASS_R_2":{"x":0},"@CLASS_R_3":{"x":0},"@CLASS_R_4":{"x":{"default":-15,"wght=700":0}},"@CLASS_R_5":{"x":0},"@CLASS_R_6":{"x":0},"@CLASS_R_7":{"x":0},"@CLASS_R_8":{"x":0},"@CLASS_R_9":{"x":0}},"@CLASS_L_6":{"@All":{"x":0},"@CLASS_R_1":{"x":0},"@CLASS_R_2":{"x":{"wght=700":0,"default":10}},"@CLASS_R_3":{"x":0},"@CLASS_R_4":{"x":0},"@CLASS_R_5":{"x":{"wght=700":0,"default":-10}},"@CLASS_R_6":{"x":0},"@CLASS_R_7":{"x":0},"@CLASS_R_8":{"x":0},"@CLASS_R_9":{"x":{"default":10,"wght=700":0}}},"@CLASS_L_7":{"@All":{"x":0},"@CLASS_R_1":{"x":0},"@CLASS_R_2":{"x":0},"@CLASS_R_3":{"x":0},"@CLASS_R_4":{"x":{"wght=700":0,"default":-10}},"@CLASS_R_5":{"x":0},"@CLASS_R_6":{"x":0},"@CLASS_R_7":{"x":0},"@CLASS_R_8":{"x":0},"@CLASS_R_9":{"x":0}},"@CLASS_L_8":{"@All":{"x":0},"@CLASS_R_1":{"x":0},"@CLASS_R_2":{"x":{"default":-10,"wght=700":0}},"@CLASS_R_3":{"x":0},"@CLASS_R_4":{"x":0},"@CLASS_R_5":{"x":0},"@CLASS_R_6":{"x":0},"@CLASS_R_7":{"x":0},"@CLASS_R_8":{"x":0},"@CLASS_R_9":{"x":{"wght=700":0,"default":-10}}}}}]}}},"STAT":{"offset_to_axis_value_offsets":{"axis_value_offsets":{"1":{"value_name_id":["258","259"]},"3":{"value_name_id":["260","263"]}}}},"fvar":{"axis_instance_arrays_offset":{"instances":{"0":{"subfamily_name_id":["262","257"],"post_script_name_id":[null,"258"]},"1":{"subfamily_name_id":["263","259"],"post_script_name_id":[null,"260"]},"2":{"subfamily_name_id":["264","261"],"post_script_name_id":[null,"262"]},"3":{"subfamily_name_id":["265","263"],"post_script_name_id":[null,"264"]}}},"instance_size":[8,10]},"head":{"checksum_adjustment":[2716098562,4272796673],"modified":[3777538622,3813909976]},"hhea":{"caret_slope_rise":[1,1000]},"name":{"LICENSE_DESCRIPTION":{"en-US":["This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL","This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://openfontlicense.org"]},"LICENSE_URL":{"en-US":["https://scripts.sil.org/OFL","https://openfontlicense.org"]},"256":{"en":[null,"Weight"]},"258":{"en-US":["Medium","NotoSansNewTaiLue-Regular"],"en":[null,"NotoSansNewTaiLue-Regular"]},"260":{"en-US":["Bold","NotoSansNewTaiLue-Medium"],"en":[null,"NotoSansNewTaiLue-Medium"]},"261":{"en":[null,"SemiBold"]},"262":{"en":["Regular","NotoSansNewTaiLue-SemiBold"],"en-US":["Regular","NotoSansNewTaiLue-SemiBold"]},"263":{"en":["Medium","Bold"],"en-US":["Medium","Bold"]},"264":{"en":["SemiBold","NotoSansNewTaiLue-Bold"],"en-US":["SemiBold","NotoSansNewTaiLue-Bold"]},"265":[{"en":"Bold","en-US":"Bold"},null],"257":[null,{"en":"Regular","en-US":"Regular"}],"259":[null,{"en":"Medium","en-US":"Medium"}]}},"cmap_diff":{},"locations":[{"location":"Medium","coords":{"wght":500.0},"glyphs":[{"string":"：","name":"FULLWIDTH COLON","unicode":"U+FF1A","differing_pixels":90}],"words":{}},{"location":"SemiBold","coords":{"wght":600.0},"glyphs":[{"string":"：","name":"FULLWIDTH COLON","unicode":"U+FF1A","differing_pixels":108}],"words":{}}]};
+		function buildLocation_statichtml(loc) {
+  // Set font styles to appropriate axis locations
+  let rule = document.styleSheets[0].cssRules[2].style;
+  let cssSetting = "";
+  let textLocation = "Default";
+  if (loc.coords) {
+    cssSetting = Object.entries(loc.coords)
+      .map(function ([axis, value]) {
+        return `"${axis}" ${value}`;
+      })
+      .join(", ");
+    textLocation = Object.entries(loc.coords)
+      .map(function ([axis, value]) {
+        return `${axis}=${value}`;
+      })
+      .join(" ");
+    rule.setProperty("font-variation-settings", cssSetting);
+  }
+
+  $("#main").empty();
+
+  $("#title").html(`<h4 class="mt-2">${textLocation}</h2>`);
+
+  if (loc.glyphs) {
+    $("#main").append("<h4>Modified Glyphs</h4>");
+    let glyphs = $("<div>");
+    for (let glyph of loc.glyphs) {
+      addAGlyph(glyph, glyphs);
+    }
+    $("#main").append(glyphs);
+  }
+
+  if (loc.words) {
+    $("#main").append("<h4>Modified Words</h4>");
+    for (let [script, words] of Object.entries(loc.words)) {
+      let scriptTitle = $(`<h6>${script}</h6>`);
+      $("#main").append(scriptTitle);
+      let worddiv = $("<div>");
+      for (let word of words) {
+        addAWord(word, worddiv);
+      }
+      $("#main").append(worddiv);
+    }
+  }
+  $('[data-toggle="tooltip"]').tooltip();
+}
+
+$(function () {
+  if (report["tables"]) {
+    diffTables(report);
+  }
+  if (report["kerns"]) {
+    diffKerns(report);
+  }
+  cmapDiff(report);
+  $('[data-toggle="tooltip"]').tooltip();
+  if (!report["locations"]) {
+    $("#title").html("<h4 class='mt-2'>No differences found</h4>");
+    $("#ui-nav").hide();
+    return;
+  }
+
+  for (var [index, loc] of report["locations"].entries()) {
+    var loc_nav = $(`<li class="nav-item">
+		<a class="nav-link text-secondary" href="#" data-index="${index}">${loc.location.replaceAll(
+      ",",
+      ",\u200b"
+    )}</a>
+	</li>`);
+    $("#locationnav").append(loc_nav);
+  }
+  $("#locationnav li a").on("click", function (e) {
+    $("#locationnav li a").removeClass("active");
+    $(this).addClass("active");
+    buildLocation_statichtml(report.locations[$(this).data("index")]);
+  });
+  $("#locationnav li a").eq(0).click();
+
+  document.styleSheets[0].cssRules[0].style.setProperty(
+    "src",
+    "url(old-NotoSansNewTaiLue[wght].ttf)"
+  );
+  document.styleSheets[0].cssRules[1].style.setProperty(
+    "src",
+    "url(new-NotoSansNewTaiLue[wght].ttf)"
+  );
+  setupAnimation();
+});
+
+	</script>
+</body>
+
+</html>
